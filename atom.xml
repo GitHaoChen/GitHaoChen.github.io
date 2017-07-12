@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-12T08:18:14.422Z</updated>
+  <updated>2017-07-12T08:46:01.020Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>changyantest</title>
+    <link href="http://yoursite.com/2017/07/12/changyantest/"/>
+    <id>http://yoursite.com/2017/07/12/changyantest/</id>
+    <published>2017-07-12T08:46:00.000Z</published>
+    <updated>2017-07-12T08:46:01.020Z</updated>
+    
+    <content type="html"><![CDATA[<!--高速版-->
+<p><div id="SOHUCS"></div></p>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js"></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cyt6NISOy',
+conf: 'prod_75702e11d450721a052afd4f23e0a7c2'
+});
+</script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;!--高速版--&gt;
+&lt;p&gt;&lt;div id=&quot;SOHUCS&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;script charset=&quot;utf-8&quot; type=&quot;text/javascript&quot; src=&quot;http://changyan.sohu.com/upload/changyan.js&quot;&gt;&lt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>changyan</title>
