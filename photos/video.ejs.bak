@@ -10,7 +10,7 @@ open_in_new: false
 <link rel="stylesheet" href="./ins.css">
 <div class="photos-btn-wrap">
 	<a class="photos-btn" href="/photos">Photos</a>
-	<a class="photos-btn active" href="/photos/video.html">Videos</a>
+	<a class="photos-btn active" href="https://githaochen.github.io/photos/video.html">Videos</a>
 </div>
 <center><h1>指弹_女儿情</h1></center>
 <hr/>
