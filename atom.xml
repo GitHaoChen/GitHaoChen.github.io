@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Lido的博客</title>
+  <title>Hal的博客</title>
   <subtitle>生如夏花</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-13T03:24:46.069Z</updated>
+  <updated>2017-07-13T03:27:02.755Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>Lido</name>
+    <name>Hal</name>
     
   </author>
   
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/07/12/changyantest/"/>
     <id>http://yoursite.com/2017/07/12/changyantest/</id>
     <published>2017-07-12T08:46:00.000Z</published>
-    <updated>2017-07-13T03:24:46.069Z</updated>
+    <updated>2017-07-13T03:27:02.755Z</updated>
     
     <content type="html"><![CDATA[<!--高速版-->
 <p><div id="SOHUCS"></div></p>
@@ -39,8 +39,6 @@ conf: 'prod_75702e11d450721a052afd4f23e0a7c2'
 &lt;script charset=&quot;utf-8&quot; type=&quot;text/javascript&quot; src=&quot;http://changyan.sohu.com/upload/changyan.js&quot;&gt;&lt;
     
     </summary>
-    
-      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
   </entry>
