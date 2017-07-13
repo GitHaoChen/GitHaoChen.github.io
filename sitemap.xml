@@ -30,14 +30,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/index.html</loc>
+    <loc>http://yoursite.com/about/index.html</loc>
     
-    <lastmod>2017-07-11T17:57:40.371Z</lastmod>
+    <lastmod>2017-07-11T10:59:08.915Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/about/index.html</loc>
+    <loc>http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/index.html</loc>
+    
+    <lastmod>2017-07-11T10:59:08.915Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/index2.html</loc>
     
     <lastmod>2017-07-11T10:59:08.915Z</lastmod>
     
