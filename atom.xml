@@ -48,9 +48,10 @@ conf: 'prod_75702e11d450721a052afd4f23e0a7c2'
     <link href="http://yoursite.com/2017/07/12/changyan/"/>
     <id>http://yoursite.com/2017/07/12/changyan/</id>
     <published>2017-07-12T08:18:14.000Z</published>
-    <updated>2017-07-12T08:18:14.422Z</updated>
+    <updated>2017-07-24T16:11:54.268Z</updated>
     
-    <content type="html"><![CDATA[<!--高速版-->
+    <content type="html"><![CDATA[<a id="more"></a>
+<!--高速版-->
 <p><div id="SOHUCS"></div></p>
 <script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js"></script>
 <script type="text/javascript">
@@ -62,9 +63,10 @@ conf: 'prod_75702e11d450721a052afd4f23e0a7c2'
     
     <summary type="html">
     
-      &lt;!--高速版--&gt;
+      &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;!--高速版--&gt;
 &lt;p&gt;&lt;div id=&quot;SOHUCS&quot;&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;script charset=&quot;utf-8&quot; type=&quot;text/javascript&quot; src=&quot;http://changyan.sohu.com/upload/changyan.js&quot;&gt;&lt;
+&lt;script charset=&quot;utf-8&quot; type=&quot;text/javascript&quot; src=&quot;http://changyan.sohu.com/upl
     
     </summary>
     
