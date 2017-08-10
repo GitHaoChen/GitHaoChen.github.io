@@ -2,23 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/07/25/Hibernate_cfg/</loc>
+    
+    <lastmod>2017-08-10T02:24:42.567Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2017-07-25T01:09:00.032Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/07/12/changyantest/</loc>
-    
-    <lastmod>2017-07-24T16:49:37.466Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/07/12/changyan/</loc>
-    
-    <lastmod>2017-07-24T16:11:54.268Z</lastmod>
     
   </url>
   
@@ -47,13 +40,6 @@
     <loc>http://yoursite.com/photos/data.json</loc>
     
     <lastmod>2017-07-13T06:15:30.164Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/07/12/Second-page/</loc>
-    
-    <lastmod>2017-07-12T04:58:04.804Z</lastmod>
     
   </url>
   
