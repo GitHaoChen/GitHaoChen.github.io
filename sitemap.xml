@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/07/28/Hibernate_ID/</loc>
+    
+    <lastmod>2017-08-11T01:48:41.282Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/07/27/Hibernate_cfg1/</loc>
+    
+    <lastmod>2017-08-10T15:10:35.137Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/07/25/Hibernate_cfg/</loc>
     
     <lastmod>2017-08-10T02:54:58.666Z</lastmod>
