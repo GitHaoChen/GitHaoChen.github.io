@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/28/Hibernate_ID/index.html">
 <meta property="og:site_name" content="Hal的博客">
 <meta property="og:description" content="Hibernate中ID生成策略&amp;emsp;&amp;emsp;在开发中，数据表经常使用到ID，并以此作为主键。在插入时，ID一般不需要手动指定，可以由数据库自动生成。实际开发中，我们一般都是先建数据表，再由数据表生成实体类，研究Hibernate如何生成ID的意义就是搞清楚应该建立什么样的表与实体类映射。">
-<meta property="og:updated_time" content="2017-08-11T01:48:41.282Z">
+<meta property="og:updated_time" content="2017-08-11T02:02:45.594Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ID生成策略">
 <meta name="twitter:description" content="Hibernate中ID生成策略&amp;emsp;&amp;emsp;在开发中，数据表经常使用到ID，并以此作为主键。在插入时，ID一般不需要手动指定，可以由数据库自动生成。实际开发中，我们一般都是先建数据表，再由数据表生成实体类，研究Hibernate如何生成ID的意义就是搞清楚应该建立什么样的表与实体类映射。">
@@ -183,10 +183,16 @@
         <h3 id="Hibernate中ID生成策略"><a href="#Hibernate中ID生成策略" class="headerlink" title="Hibernate中ID生成策略"></a>Hibernate中ID生成策略</h3><p>&emsp;&emsp;在开发中，数据表经常使用到ID，并以此作为主键。在插入时，ID一般不需要手动指定，可以由数据库自动生成。实际开发中，我们一般都是先建数据表，再由数据表生成实体类，研究Hibernate如何生成ID的意义就是搞清楚应该建立什么样的表与实体类映射。<br><a id="more"></a></p>
 <ol>
 <li>xml生成ID<ul>
-<li>在id标签内添加字标签，如下<blockquote>
-<generator class="uuid"></generator>
-
+<li>在id标签内添加字标签，如下  <blockquote>
+<p>&lt;generator class=”uuid”&gt;&lt;/generator&gt;</p>
 </blockquote>
+</li>
+<li>class取值，如下：<ul>
+<li>native</li>
+<li>identity</li>
+<li>sequence</li>
+<li>uuid</li>
+</ul>
 </li>
 </ul>
 </li>
