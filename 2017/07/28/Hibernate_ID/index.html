@@ -9,13 +9,13 @@
   <title>ID生成策略 | Hal的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Hibernate中ID生成策略&amp;emsp;&amp;emsp;在开发中，数据表经常使用到ID，并以此作为主键。在插入时，ID一般不需要手动指定，可以由数据库自动生成。实际开发中，我们一般都是先建数据表，再由数据表生成实体类，研究Hibernate如何生成ID的意义就是搞清楚应该建立什么样的表与实体类映射。">
-<meta name="keywords" content="hibernate,ID">
+<meta name="keywords" content="hibernate,ID,联合主键">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ID生成策略">
 <meta property="og:url" content="http://yoursite.com/2017/07/28/Hibernate_ID/index.html">
 <meta property="og:site_name" content="Hal的博客">
 <meta property="og:description" content="Hibernate中ID生成策略&amp;emsp;&amp;emsp;在开发中，数据表经常使用到ID，并以此作为主键。在插入时，ID一般不需要手动指定，可以由数据库自动生成。实际开发中，我们一般都是先建数据表，再由数据表生成实体类，研究Hibernate如何生成ID的意义就是搞清楚应该建立什么样的表与实体类映射。">
-<meta property="og:updated_time" content="2017-08-14T16:31:10.771Z">
+<meta property="og:updated_time" content="2017-08-15T02:21:20.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ID生成策略">
 <meta name="twitter:description" content="Hibernate中ID生成策略&amp;emsp;&amp;emsp;在开发中，数据表经常使用到ID，并以此作为主键。在插入时，ID一般不需要手动指定，可以由数据库自动生成。实际开发中，我们一般都是先建数据表，再由数据表生成实体类，研究Hibernate如何生成ID的意义就是搞清楚应该建立什么样的表与实体类映射。">
@@ -274,6 +274,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ID</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">联合主键</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -341,6 +345,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/07/29/Hibernate_session/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          openSession()跟getCurrentSession()方法之间的区别
+        
+      </div>
+    </a>
   
   
     <a href="/2017/07/27/Hibernate_cfg1/" id="article-nav-older" class="article-nav-link-wrap">
@@ -493,6 +506,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ID</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Session</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">对象状态</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">联合主键</a>
               </li>
             
             <div class="clearfix"></div>
