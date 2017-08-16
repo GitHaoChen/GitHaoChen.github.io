@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hal的博客">
 <meta property="og:description" content="hibernate中openSession()跟getCurrentSession()方法之间的区别&amp;emsp;&amp;emsp;openSession()和getCurrentSession()都用来产生session对象，区别如下：  采用getCurrentSession()创建的Session会绑定到当前的线程中去，而采用OpenSession()则不会。 采用getCurrentSession">
 <meta property="og:image" content="http://i.imgur.com/b3GbF5Z.png">
-<meta property="og:updated_time" content="2017-08-16T02:17:25.526Z">
+<meta property="og:updated_time" content="2017-08-16T02:22:03.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="openSession()跟getCurrentSession()方法之间的区别">
 <meta name="twitter:description" content="hibernate中openSession()跟getCurrentSession()方法之间的区别&amp;emsp;&amp;emsp;openSession()和getCurrentSession()都用来产生session对象，区别如下：  采用getCurrentSession()创建的Session会绑定到当前的线程中去，而采用OpenSession()则不会。 采用getCurrentSession">
@@ -185,7 +185,7 @@
         <h3 id="hibernate中openSession-跟getCurrentSession-方法之间的区别"><a href="#hibernate中openSession-跟getCurrentSession-方法之间的区别" class="headerlink" title="hibernate中openSession()跟getCurrentSession()方法之间的区别"></a>hibernate中openSession()跟getCurrentSession()方法之间的区别</h3><p>&emsp;&emsp;openSession()和getCurrentSession()都用来产生session对象，区别如下：</p>
 <ul>
 <li>采用getCurrentSession()创建的Session会绑定到当前的线程中去，而采用OpenSession()则不会。</li>
-<li>采用getCurrentSession()创建的Session在commit或rollback后会自动关闭，采用OpenSession()必须手动关闭。</li>
+<li>采用getCurrentSession()创建的Session在commit或rollback后会自动关闭，采用OpenSession()必须手动关闭。<a id="more"></a></li>
 <li>采用getCurrentSession()需要在Hibernate.cfg.xml配置文件中加入如下配置：<blockquote>
 <p>如果是本地事物，及JDBC一个数据库：<br>&lt;propety name=”Hibernate.current_session_context_class”&gt;thread&lt;/propety&gt;<br>如果是全局事物，及jta事物、多个数据库资源或事物资源：<br>&lt;propety name=”Hibernate.current_session_context_class”&gt;jta&lt;/propety&gt;<br><img src="http://i.imgur.com/b3GbF5Z.png" alt=""><br>JTA(Java transaction api)用于管理分布式数据库之间事务，tomcat无法提供</p>
 </blockquote>
