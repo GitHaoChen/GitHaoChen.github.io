@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>随笔 | Hal的博客</title>
+  <title>SchemaExport的使用 | Hal的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;emsp;&amp;emsp;转眼间距离自己入职工作将有一年的时间，作为银联全家桶的一员，我好像已经习惯了套餐中相对闲散的工作生活。回想这一年的生活，好像自己除了本职工作，什么多没做，连自己最大的爱好篮球都都很少再去打理，感觉是时候做些改变了。&amp;emsp;&amp;emsp;介绍一下我的工作，自从2016年7月毕业，便一直任职于银联数据服务有限公司研发部做借记卡系统后台开发工作。在同学朋友看来，这是一个很“体面">
-<meta property="og:type" content="website">
-<meta property="og:title" content="随笔">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="SchemaExport的使用&amp;emsp;&amp;emsp;Hibernate中SchemaExport可以用来在程序中控制生成的建表语句，跟hibernate.cfg.xml配置文件中如下配置  &amp;lt;property name=”hbm2ddl.auto”&amp;gt;create &amp;lt;/property&amp;gt;  有着相同的作用。hibernate 5.x的版本中，SchemaExport的用法不">
+<meta name="keywords" content="hibernate,chemaExport">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SchemaExport的使用">
+<meta property="og:url" content="http://yoursite.com/2017/07/31/Hibernate_schemaexport/index.html">
 <meta property="og:site_name" content="Hal的博客">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;转眼间距离自己入职工作将有一年的时间，作为银联全家桶的一员，我好像已经习惯了套餐中相对闲散的工作生活。回想这一年的生活，好像自己除了本职工作，什么多没做，连自己最大的爱好篮球都都很少再去打理，感觉是时候做些改变了。&amp;emsp;&amp;emsp;介绍一下我的工作，自从2016年7月毕业，便一直任职于银联数据服务有限公司研发部做借记卡系统后台开发工作。在同学朋友看来，这是一个很“体面">
-<meta property="og:image" content="http://i.imgur.com/THCyjfy.jpg">
-<meta property="og:updated_time" content="2017-07-25T01:09:00.032Z">
+<meta property="og:description" content="SchemaExport的使用&amp;emsp;&amp;emsp;Hibernate中SchemaExport可以用来在程序中控制生成的建表语句，跟hibernate.cfg.xml配置文件中如下配置  &amp;lt;property name=”hbm2ddl.auto”&amp;gt;create &amp;lt;/property&amp;gt;  有着相同的作用。hibernate 5.x的版本中，SchemaExport的用法不">
+<meta property="og:updated_time" content="2017-08-22T14:47:15.994Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="随笔">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;转眼间距离自己入职工作将有一年的时间，作为银联全家桶的一员，我好像已经习惯了套餐中相对闲散的工作生活。回想这一年的生活，好像自己除了本职工作，什么多没做，连自己最大的爱好篮球都都很少再去打理，感觉是时候做些改变了。&amp;emsp;&amp;emsp;介绍一下我的工作，自从2016年7月毕业，便一直任职于银联数据服务有限公司研发部做借记卡系统后台开发工作。在同学朋友看来，这是一个很“体面">
-<meta name="twitter:image" content="http://i.imgur.com/THCyjfy.jpg">
+<meta name="twitter:title" content="SchemaExport的使用">
+<meta name="twitter:description" content="SchemaExport的使用&amp;emsp;&amp;emsp;Hibernate中SchemaExport可以用来在程序中控制生成的建表语句，跟hibernate.cfg.xml配置文件中如下配置  &amp;lt;property name=”hbm2ddl.auto”&amp;gt;create &amp;lt;/property&amp;gt;  有着相同的作用。hibernate 5.x的版本中，SchemaExport的用法不">
   
     <link rel="alternative" href="/atom.xml" title="Hal的博客" type="application/atom+xml">
   
@@ -161,27 +160,31 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-Hibernate_schemaexport" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      随笔
+      SchemaExport的使用
     </h1>
   
 
         
-        <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2017-07-24T15:52:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-24</time>
+        <a href="/2017/07/31/Hibernate_schemaexport/" class="archive-article-date">
+  	<time datetime="2017-07-31T03:58:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><center><br><img src="http://i.imgur.com/THCyjfy.jpg" alt=""><br></center><br>&emsp;&emsp;转眼间距离自己入职工作将有一年的时间，作为银联全家桶的一员，我好像已经习惯了套餐中相对闲散的工作生活。回想这一年的生活，好像自己除了本职工作，什么多没做，连自己最大的爱好篮球都都很少再去打理，感觉是时候做些改变了。<br>&emsp;&emsp;介绍一下我的工作，自从2016年7月毕业，便一直任职于银联数据服务有限公司研发部做借记卡系统后台开发工作。在同学朋友看来，这是一个很“体面”的工作，传说中的互联网金融嘛，我一度也这么认为。相比于在互联网公司血拼的同学来讲，我这份工作简直太舒服了,可以过着早九晚五的生活，工作基本上无压力。一切多么美好，直到我一个朋友让我帮忙做几个网页，我才发现原来自己沉浸在这种舒适的环境太久，连大学时代引以为傲的技能都被丢的差不多了。而我记忆中我不是这样的，我应该是一个很有“追求”的程序员才对(¬_¬)<br>&emsp;&emsp;我属于接触计算机比较晚的那一波人，高中才开始上所谓的“微机课”。但基本上什么都没学到，更没能激起对计算机的浓厚兴趣。高中毕业在没弄清楚计算机到底是干嘛的情况下，稀里糊涂的选择了计算机科学与技术专业。入学后第一门编程课C语言就给了我当头一棒，班级里也有大神存在，内心的落差可想而知。记得当时C语言老师有一句很滑稽的口头语，假装你自己懂了……我记得当时自己将所有的习题都敲了一遍，磕磕绊绊地总算度过了入门阶段。其实现在看来，那个时候最缺乏的不是机灵，而是汗水吧，很庆幸那是的自己坚持了下来。<br>&emsp;&emsp;大学四年，我做过很多尝试。觉得ACM很酷炫，去尝试过几天ACM，但最终却没坚持下来。从大学入学一直打算保研，便去参加学校的科研训练项目，也做出了一些成绩，但当保研结果敲定，自己又临阵退缩，觉得研究生这条路不适合自己。对专业有一定了解后，觉得应用开发要比算法适用面广，便邀上三五好友一起学习网站开发。后来有创业的打算，打算做一个图片社交站点，几个人一起窝在一间小房子里经历严寒酷暑码代码，但未见成效便无疾而终。这样看来，其实自己的大学时代挺失败的，没有做成一件值得称赞的事。滑稽的是，这样糟糕的自己却成了同窗口中的佼佼者，自己也沉浸在这种“荣誉”之中，不知自己所了解的所谓“技术”连冰山一角都算不上。<br>&emsp;&emsp;到工作自己一直是那么顺利，找到大家口中的“好工作”。而自己也觉得是努力的回报，一切都是理所当然。但事实怎么样，自己一直没有仔细静下心来想过。感谢在银联全家桶这一年轻松的工作，让我得此机会看到自己有那么多欠缺的东西。缺乏坚持，完全没了当时学C语言的那股韧劲。容易满足，沉浸在自己营造的小圈子中，不知追求为何物。我觉得这是我工作一年以来最大的收获。如果你同样作为一名涉世未深的程序员，并且跟我有着同样的疑惑不知所措，那么希望你能使自己充实起来，去做一名有“信仰”的程序员。如果你是一名在校程序猿，我希望我的这番话能给你当头一棒，找一个自己感兴趣的方向坚持下去，不要去轻信什么“大学就是用来……”之类的论点，去找属于程序员的骄傲与满足感。高中班主任有一句口头语“耐得住寂寞，才能守得住繁华”，我想我该去寻找自己错失的寂寞了。<br>&emsp;&emsp;愿你失败多次，依然相信自己，就算走过再多弯路，无论成功与否，依然是那个可以因为控制台打印出的一行“Hello World”而开心半天的少年。</p>
+        <h3 id="SchemaExport的使用"><a href="#SchemaExport的使用" class="headerlink" title="SchemaExport的使用"></a>SchemaExport的使用</h3><p>&emsp;&emsp;Hibernate中SchemaExport可以用来在程序中控制生成的建表语句，跟hibernate.cfg.xml配置文件中如下配置</p>
+<blockquote>
+<p>&lt;property name=”hbm2ddl.auto”&gt;create &lt;/property&gt;</p>
+</blockquote>
+<p>有着相同的作用。hibernate 5.x的版本中，SchemaExport的用法不同于以前的版本，而网上的诸多资料都还停留在以前的3.x， 4.x的API中，这里我简单说一下5.x版本中SchemaExport的用法。<br><a id="more"></a><br>hibernate 5.x的版本中使用如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();</div><div class="line">Metadata metadata = new MetadataSources(serviceRegistry).buildMetadata();</div><div class="line">SchemaExport schemaExport = new SchemaExport();</div><div class="line">schemaExport.create(EnumSet.of(TargetType.DATABASE), metadata);</div></pre></td></tr></table></figure></p>
 
       
 
@@ -190,6 +193,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">chemaExport</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -240,7 +258,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/tags/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/31/Hibernate_schemaexport/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -252,6 +270,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/29/Hibernate_states3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hibernate对象的三种状态</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -276,7 +304,7 @@
   
 
   
-  <div id="SOHUCS" sid="undefined" ></div> 
+  <div id="SOHUCS" sid="Hibernate_schemaexport" ></div> 
 <script type="text/javascript">
 	var_config={
 	skin: 'black'
@@ -316,7 +344,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
