@@ -157,6 +157,124 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Hibernate_one2one_uni_fk" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/01/Hibernate_one2one_uni_fk/">Hibernate对象关联之一对一关联</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/01/Hibernate_one2one_uni_fk/" class="archive-article-date">
+  	<time datetime="2017-08-01T03:47:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Hibernate单向外键关联配置"><a href="#Hibernate单向外键关联配置" class="headerlink" title="Hibernate单向外键关联配置"></a>Hibernate单向外键关联配置</h3><ul>
+<li>Annotation单向外键关联配置<ul>
+<li>实体类中添加关联对象</li>
+<li>关联对象属性的get方法上添加注解@OneToOne，@JoinColumn注解用于指明生成表中外键字段的名称</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">@Entity</div><div class="line">public class Husband &#123;</div><div class="line">	</div><div class="line">	private int id;</div><div class="line">	private String name;</div><div class="line">	private Wife wife;</div><div class="line">	</div><div class="line">	@Id</div><div class="line">	@GeneratedValue</div><div class="line">	public int getId() &#123;</div><div class="line">		return id;</div><div class="line">	&#125;</div><div class="line">	public void setId(int id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line">	@OneToOne</div><div class="line">	@JoinColumn(name=&quot;wifeId&quot;)</div><div class="line">	public Wife getWife() &#123;</div><div class="line">		return wife;</div><div class="line">	&#125;</div><div class="line">	public void setWife(Wife wife) &#123;</div><div class="line">		this.wife = wife;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>XML单向外键关联配置<ul>
+<li>创建实体类</li>
+<li>xml中配置单向外键关联关系，配置如下：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&apos;1.0&apos; encoding=&apos;utf-8&apos;?&gt;</div><div class="line">&lt;!DOCTYPE hibernate-configuration PUBLIC</div><div class="line">        &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;</div><div class="line">        &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;</div><div class="line"></div><div class="line">&lt;hibernate-mapping package=&quot;com.lidolid.hibernate.model&quot;&gt;</div><div class="line">	&lt;class name=&quot;StuIdCard&quot; table=&quot;StuIdCard&quot; dynamic-update=&quot;true&quot;&gt;</div><div class="line">		&lt;id name=&quot;id&quot;&gt;</div><div class="line">			&lt;generator class=&quot;native&quot;&gt;&lt;/generator&gt;</div><div class="line">		&lt;/id&gt;</div><div class="line">		&lt;property name=&quot;num&quot;&gt;&lt;/property&gt;</div><div class="line">		&lt;many-to-one name=&quot;student&quot; column=&quot;studentId&quot; unique=&quot;true&quot;&gt;&lt;/many-to-one&gt;</div><div class="line">	&lt;/class&gt;</div><div class="line">&lt;/hibernate-mapping&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>说明：many-to-one属性中，name是指实体类中用来关联的对象，column是指生成表中外键字段的名称，unique=”true”说明是一对一关系</p>
+</blockquote>
+<h3 id="Hibernate双向外键关联配置"><a href="#Hibernate双向外键关联配置" class="headerlink" title="Hibernate双向外键关联配置"></a>Hibernate双向外键关联配置</h3><ul>
+<li>Annotation单向外键关联配置<ul>
+<li>另一方实体类中添加关联对象</li>
+<li>关联对象属性的get方法上添加注解@OneToOne，@JoinColumn注解用于指明生成表中外键字段的名称</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">//Husband实体类</div><div class="line">@Entity</div><div class="line">public class Husband &#123;</div><div class="line">	</div><div class="line">	private int id;</div><div class="line">	private String name;</div><div class="line">	private Wife wife;</div><div class="line">	</div><div class="line">	@Id</div><div class="line">	@GeneratedValue</div><div class="line">	public int getId() &#123;</div><div class="line">		return id;</div><div class="line">	&#125;</div><div class="line">	public void setId(int id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line">	@OneToOne</div><div class="line">	@JoinColumn(name=&quot;wifeId&quot;)</div><div class="line">	public Wife getWife() &#123;</div><div class="line">		return wife;</div><div class="line">	&#125;</div><div class="line">	public void setWife(Wife wife) &#123;</div><div class="line">		this.wife = wife;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">//Wife实体类</div><div class="line">@Entity</div><div class="line">public class Wife &#123;</div><div class="line"></div><div class="line">	private int id;</div><div class="line">	private String name;</div><div class="line">	private Husband husband;</div><div class="line"></div><div class="line">	@Id</div><div class="line">	@GeneratedValue</div><div class="line">	public int getId() &#123;</div><div class="line">		return id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setId(int id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@OneToOne(mappedBy=&quot;wife&quot;)</div><div class="line">	public Husband getHusband() &#123;</div><div class="line">		return husband;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setHusband(Husband husband) &#123;</div><div class="line">		this.husband = husband;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>OneToOne属性mappedBy=”wife”说明，表明双向关联关系以Husband类的wife做主导，<strong>凡是双向关联关系，都要设置mappedBy</strong></p>
+</blockquote>
+<ul>
+<li>XML双向外键关联配置<ul>
+<li>关联双方添加对方对象属性</li>
+<li>关联双方的model.hbm.xml文件中添加many-to-one、one-to-one、property-ref属性</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div></pre></td><td class="code"><pre><div class="line">//Student实体类</div><div class="line">public class Student &#123;</div><div class="line">	private int id;</div><div class="line">	private String name;</div><div class="line">	private int age;</div><div class="line">	private StuIdCard stuIdCard;</div><div class="line">	</div><div class="line">	public int getId() &#123;</div><div class="line">		return id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setId(int id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public int getAge() &#123;</div><div class="line">		return age;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setAge(int age) &#123;</div><div class="line">		this.age = age;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public StuIdCard getStuIdCard() &#123;</div><div class="line">		return stuIdCard;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setStuIdCard(StuIdCard stuIdCard) &#123;</div><div class="line">		this.stuIdCard = stuIdCard;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">//StuIdCard实体类</div><div class="line">public class StuIdCard &#123;</div><div class="line">	private int id;</div><div class="line">	private String num;</div><div class="line">	private Student student;</div><div class="line">	public int getId() &#123;</div><div class="line">		return id;</div><div class="line">	&#125;</div><div class="line">	public void setId(int id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line">	public String getNum() &#123;</div><div class="line">		return num;</div><div class="line">	&#125;</div><div class="line">	public void setNum(String num) &#123;</div><div class="line">		this.num = num;</div><div class="line">	&#125;</div><div class="line">	public Student getStudent() &#123;</div><div class="line">		return student;</div><div class="line">	&#125;</div><div class="line">	public void setStudent(Student student) &#123;</div><div class="line">		this.student = student;</div><div class="line">	&#125;	</div><div class="line">&#125;</div><div class="line"></div><div class="line">//Student实体类配置文件</div><div class="line">&lt;?xml version=&apos;1.0&apos; encoding=&apos;utf-8&apos;?&gt;</div><div class="line">&lt;!DOCTYPE hibernate-configuration PUBLIC</div><div class="line">        &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;</div><div class="line">        &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;</div><div class="line"></div><div class="line">&lt;hibernate-mapping package=&quot;com.lidolid.hibernate.model&quot;&gt;</div><div class="line">	&lt;class name=&quot;Student&quot; table=&quot;student&quot; dynamic-update=&quot;true&quot;&gt;</div><div class="line">		&lt;!-- 映射主键 --&gt;</div><div class="line">		&lt;!-- &lt;id name=&quot;id&quot; column=&quot;id&quot;&gt;&lt;/id&gt; --&gt;</div><div class="line">		&lt;id name=&quot;id&quot;&gt;</div><div class="line">			&lt;generator class=&quot;native&quot;&gt;&lt;/generator&gt;</div><div class="line">		&lt;/id&gt;</div><div class="line">		&lt;property name=&quot;name&quot;&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=&quot;age&quot;&gt;&lt;/property&gt;</div><div class="line">		&lt;one-to-one name =&quot;stuIdCard&quot; property-ref=&quot;student&quot;&gt;&lt;/one-toone&gt;</div><div class="line">	&lt;/class&gt;</div><div class="line">&lt;/hibernate-mapping&gt;</div><div class="line"></div><div class="line">//StuIdCard类配置文件</div><div class="line">&lt;?xml version=&apos;1.0&apos; encoding=&apos;utf-8&apos;?&gt;</div><div class="line">&lt;!DOCTYPE hibernate-configuration PUBLIC</div><div class="line">        &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;</div><div class="line">        &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;</div><div class="line"></div><div class="line">&lt;hibernate-mapping package=&quot;com.lidolid.hibernate.model&quot;&gt;</div><div class="line">	&lt;class name=&quot;StuIdCard&quot; table=&quot;StuIdCard&quot; dynamic-update=&quot;true&quot;&gt;</div><div class="line">		&lt;id name=&quot;id&quot;&gt;</div><div class="line">			&lt;generator class=&quot;native&quot;&gt;&lt;/generator&gt;</div><div class="line">		&lt;/id&gt;</div><div class="line">		&lt;property name=&quot;num&quot;&gt;&lt;/property&gt;</div><div class="line">		&lt;many-to-one name=&quot;student&quot; column=&quot;studentId&quot; unique=&quot;true&quot;&gt;&lt;/many-to-one&gt;</div><div class="line">	&lt;/class&gt;</div><div class="line">&lt;/hibernate-mapping&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>说明：property-ref=”student”表明双向关联关系是与本类(Student)关联的类StuIdCard中的student属性主导的</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">单向外键关联</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/01/Hibernate_one2one_uni_fk/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Hibernate_schemaexport" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1014,6 +1132,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">chemaExport</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">单向外键关联</a>
               </li>
             
             <div class="clearfix"></div>

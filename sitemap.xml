@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/08/01/Hibernate_one2one_uni_fk/</loc>
+    
+    <lastmod>2017-08-31T01:51:05.784Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/07/31/Hibernate_schemaexport/</loc>
     
     <lastmod>2017-08-22T14:47:15.994Z</lastmod>
