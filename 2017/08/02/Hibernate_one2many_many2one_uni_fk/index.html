@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>ID生成策略 | Hal的博客</title>
+  <title>Hibernate对象关联之一对多&amp;多对一关联 | Hal的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hibernate中ID生成策略&amp;emsp;&amp;emsp;在开发中，数据表经常使用到ID，并以此作为主键。在插入时，ID一般不需要手动指定，可以由数据库自动生成。实际开发中，我们一般都是先建数据表，再由数据表生成实体类，研究Hibernate如何生成ID的意义就是搞清楚应该建立什么样的表与实体类映射。">
-<meta name="keywords" content="hibernate,ID,联合主键">
+  <meta name="description" content="Hibernate一对多单向外键关联配置 Annotation单向外键关联配置 关联对象处于一方的实体类添加对方对象的Set属性(一对多) 关联对象属性的get方法上添加注解@OneToMany，@JoinColumn注解用于指明生成表中外键字段的名称">
+<meta name="keywords" content="hibernate,一对多关联">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ID生成策略">
-<meta property="og:url" content="http://yoursite.com/2017/07/28/Hibernate_ID/index.html">
+<meta property="og:title" content="Hibernate对象关联之一对多&amp;多对一关联">
+<meta property="og:url" content="http://yoursite.com/2017/08/02/Hibernate_one2many_many2one_uni_fk/index.html">
 <meta property="og:site_name" content="Hal的博客">
-<meta property="og:description" content="Hibernate中ID生成策略&amp;emsp;&amp;emsp;在开发中，数据表经常使用到ID，并以此作为主键。在插入时，ID一般不需要手动指定，可以由数据库自动生成。实际开发中，我们一般都是先建数据表，再由数据表生成实体类，研究Hibernate如何生成ID的意义就是搞清楚应该建立什么样的表与实体类映射。">
-<meta property="og:updated_time" content="2017-08-15T02:21:20.894Z">
+<meta property="og:description" content="Hibernate一对多单向外键关联配置 Annotation单向外键关联配置 关联对象处于一方的实体类添加对方对象的Set属性(一对多) 关联对象属性的get方法上添加注解@OneToMany，@JoinColumn注解用于指明生成表中外键字段的名称">
+<meta property="og:updated_time" content="2017-08-31T02:33:25.572Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ID生成策略">
-<meta name="twitter:description" content="Hibernate中ID生成策略&amp;emsp;&amp;emsp;在开发中，数据表经常使用到ID，并以此作为主键。在插入时，ID一般不需要手动指定，可以由数据库自动生成。实际开发中，我们一般都是先建数据表，再由数据表生成实体类，研究Hibernate如何生成ID的意义就是搞清楚应该建立什么样的表与实体类映射。">
+<meta name="twitter:title" content="Hibernate对象关联之一对多&amp;多对一关联">
+<meta name="twitter:description" content="Hibernate一对多单向外键关联配置 Annotation单向外键关联配置 关联对象处于一方的实体类添加对方对象的Set属性(一对多) 关联对象属性的get方法上添加注解@OneToMany，@JoinColumn注解用于指明生成表中外键字段的名称">
   
     <link rel="alternative" href="/atom.xml" title="Hal的博客" type="application/atom+xml">
   
@@ -160,101 +160,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Hibernate_ID" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Hibernate_one2many_many2one_uni_fk" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      ID生成策略
+      Hibernate对象关联之一对多&amp;多对一关联
     </h1>
   
 
         
-        <a href="/2017/07/28/Hibernate_ID/" class="archive-article-date">
-  	<time datetime="2017-07-27T17:19:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-28</time>
+        <a href="/2017/08/02/Hibernate_one2many_many2one_uni_fk/" class="archive-article-date">
+  	<time datetime="2017-08-02T03:33:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Hibernate中ID生成策略"><a href="#Hibernate中ID生成策略" class="headerlink" title="Hibernate中ID生成策略"></a>Hibernate中ID生成策略</h3><p>&emsp;&emsp;在开发中，数据表经常使用到ID，并以此作为主键。在插入时，ID一般不需要手动指定，可以由数据库自动生成。实际开发中，我们一般都是先建数据表，再由数据表生成实体类，研究Hibernate如何生成ID的意义就是搞清楚应该建立什么样的表与实体类映射。<br><a id="more"></a></p>
-<ul>
-<li><p><strong>xml生成ID</strong></p>
-<ul>
-<li>在id标签内添加字标签，如下  <blockquote>
-<p>&lt;generator class=”uuid”&gt;&lt;/generator&gt;</p>
+        <h3 id="Hibernate一对多单向外键关联配置"><a href="#Hibernate一对多单向外键关联配置" class="headerlink" title="Hibernate一对多单向外键关联配置"></a>Hibernate一对多单向外键关联配置</h3><ul>
+<li>Annotation单向外键关联配置<ul>
+<li>关联对象处于一方的实体类添加对方对象的Set属性(一对多)</li>
+<li>关联对象属性的get方法上添加注解@OneToMany，@JoinColumn注解用于指明生成表中外键字段的名称</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a> 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">//Group实体类</div><div class="line">@Entity</div><div class="line">public class Group &#123;</div><div class="line"></div><div class="line">	private int id;</div><div class="line">	private String name;</div><div class="line">	private Set&lt;User&gt; users = new HashSet&lt;User&gt;();</div><div class="line"></div><div class="line">	@Id</div><div class="line">	@GeneratedValue</div><div class="line">	public int getId() &#123;</div><div class="line">		return id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setId(int id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@OneToMany</div><div class="line">	@JoinColumn(name=&quot;groupId&quot;)</div><div class="line">	public Set&lt;User&gt; getUsers() &#123;</div><div class="line">		return users;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setUsers(Set&lt;User&gt; users) &#123;</div><div class="line">		this.users = users;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">//User实体类</div><div class="line">@Entity</div><div class="line">public class User &#123;</div><div class="line"></div><div class="line">	private int id;</div><div class="line">	private String name;</div><div class="line"></div><div class="line">	@Id</div><div class="line">	@GeneratedValue</div><div class="line">	public int getId() &#123;</div><div class="line">		return id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setId(int id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：实体类中添加@JoinColumn(name=”groupId”)注解，如果不添加此注解，hibernate会将一对多关系解释为多对多的一种特殊方式，会通过建中间表的形式实现关联关系。<br>添加注解后生成的User表存在一列groupId，用于存储用户所在的组</p>
 </blockquote>
-</li>
-<li>class取值，如下：<ul>
-<li>native：mysql中生成的id属性auto_increment，oracle中id属性为sequence，sqlserver中id属性为identity</li>
-<li>identity</li>
-<li>sequence</li>
-<li>uuid</li>
+<h3 id="Hibernate多对一单向外键关联配置"><a href="#Hibernate多对一单向外键关联配置" class="headerlink" title="Hibernate多对一单向外键关联配置"></a>Hibernate多对一单向外键关联配置</h3><ul>
+<li>Annotation单向外键关联配置<ul>
+<li>关联对象处于多方的实体类添加对方对象属性</li>
+<li>关联对象属性的get方法上添加注解@ManyToOne</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p><strong>Annotation生成ID</strong></p>
-<ul>
-<li>在ID属性的get方法上添加注解@GeneratedValue</li>
-<li>GeneratedValue取值：<ul>
-<li>AUTO：默认值，同xml的native  </li>
-<li>IDENTITY：@GeneratedValue(strategy=GenerationType.IDENTITY)</li>
-<li>SEQUENCE:假如不指明，所有的表会共用一个sequence，使用自定义sequence名字来指明不同的表使用不同的sequence。在实体类上加上自定义sequence说明,在getId方法指明自定义generator名称<blockquote>
-<p>@SequenceGenerator(name=”teacherSEQ”, sequenceName=”teacherSEQ_DB”)<br>@GeneratedValue(strategy=GenerationType.SEQUENCE, generator=”teacherSEQ”)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">//Group实体类</div><div class="line">@Entity</div><div class="line">public class Group &#123;</div><div class="line"></div><div class="line">	private int id;</div><div class="line">	private String name;</div><div class="line"></div><div class="line">	@Id</div><div class="line">	@GeneratedValue</div><div class="line">	public int getId() &#123;</div><div class="line">		return id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setId(int id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//User实体类</div><div class="line">@Entity</div><div class="line">public class User &#123;</div><div class="line"></div><div class="line">	private int id;</div><div class="line">	private String name;</div><div class="line">	private Group group;</div><div class="line"></div><div class="line">	@Id</div><div class="line">	@GeneratedValue</div><div class="line">	public int getId() &#123;</div><div class="line">		return id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setId(int id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@ManyToOne</div><div class="line">	public Group getGroup() &#123;</div><div class="line">		return group;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setGroup(Group group) &#123;</div><div class="line">		this.group = group;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在未添加@JoinColumn生成的User表会自动生成一列group_id，用于记录所属的组</p>
 </blockquote>
+<h3 id="Hibernate一对多多对一双向外键关联配置"><a href="#Hibernate一对多多对一双向外键关联配置" class="headerlink" title="Hibernate一对多多对一双向外键关联配置"></a>Hibernate一对多多对一双向外键关联配置</h3><ul>
+<li>Annotation单向外键关联配置<ul>
+<li>关联对象双方添加对方对象属性，其中一方添加的是对方的Set集合</li>
+<li>关联对象属性的get方法上添加注解，一方添加@OneToMany注解，多方添加@ManyToOne注解</li>
+</ul>
 </li>
-<li>TABLE:数据库生成一张独立地表来记录各个表需要的主键的值，每次取完后会进行自增,用法和sequence相似，需在实体类上方添加主键字段说明，在getId方法指明generator名称<blockquote>
-<p>@@javax.persistence.TableGenerator(name = “Teacher_GEN”, table = “GENERATOR_TABLE”, pkColumnName = “pk_key”, valueColumnName = “pk_value”, pkColumnValue = “Teacher”, allocationSize = 1)<br>@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = “Teacher_GEN”)</p>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line">//Group实体类</div><div class="line">@Entity</div><div class="line">public class Group &#123;</div><div class="line"></div><div class="line">	private int id;</div><div class="line">	private String name;</div><div class="line">	private Set&lt;User&gt; users = new HashSet&lt;User&gt;();</div><div class="line"></div><div class="line">	@Id</div><div class="line">	@GeneratedValue</div><div class="line">	public int getId() &#123;</div><div class="line">		return id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setId(int id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@OneToMany(mappedBy=&quot;group&quot;)</div><div class="line">	public Set&lt;User&gt; getUsers() &#123;</div><div class="line">		return users;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setUsers(Set&lt;User&gt; users) &#123;</div><div class="line">		this.users = users;</div><div class="line">	&#125;	</div><div class="line">&#125;</div><div class="line"></div><div class="line">//User实体类</div><div class="line">@Entity</div><div class="line">public class User &#123;</div><div class="line"></div><div class="line">	private int id;</div><div class="line">	private String name;</div><div class="line">	private Group group;</div><div class="line"></div><div class="line">	@Id</div><div class="line">	@GeneratedValue</div><div class="line">	public int getId() &#123;</div><div class="line">		return id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setId(int id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@ManyToOne</div><div class="line">	public Group getGroup() &#123;</div><div class="line">		return group;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setGroup(Group group) &#123;</div><div class="line">		this.group = group;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Group实体类添加的注解@OneToMany(mappedBy=”group”)说明：指明双向关联关系是由对应User类的group属性主导（在User表中建立指向Group的外键），生成的User表中自动生成一列group_id，记录用户所属的组<br>凡是双向关联关系必设mappedBy</p>
 </blockquote>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>联合主键</p>
-<ul>
-<li><p>xml联合主键配置</p>
-<ul>
-<li>添加主键类</li>
-<li>配置mdel.hbm.xml，内容如下：<blockquote>
-<p>&lt;composite-id name=”pk” class=”com.lidolid.hibernate.model.StudentPK”&gt;<br>&lt;key-property name=”id” /&gt;<br>&lt;key-property name=”name” /&gt;<br>&lt;/composite-id/&gt;</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>Annotation联合主键配置</p>
-<ol>
-<li><p>@Embeddable + @Id</p>
-<ul>
-<li>添加主键类</li>
-<li>主键类添加@Embeddable注解</li>
-<li>实体类中主键对象的get方法上添加注解@Id</li>
-</ul>
-</li>
-<li><p>@EmbeddedId</p>
-<ul>
-<li>添加主键类</li>
-<li>实体类中主键对象的get方法上添加注解@EmbeddedId</li>
-</ul>
-</li>
-<li><p>@Id + @IdClass</p>
-<ul>
-<li>添加主键类</li>
-<li>实体类中主键属性的get方法上添加注解@Id</li>
-<li>实体类添加注解@IdClass</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="实验过程中遇到的问题"><a href="#实验过程中遇到的问题" class="headerlink" title="实验过程中遇到的问题"></a>实验过程中遇到的问题</h5><p>&emsp;&emsp;在通过xml配置联合主键是遇到问题如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ERROR DriverManagerConnectionProviderImpl:92 - Collection leak detected: there are 1 unclosed connections upon shutting down pool jdbc:mysql://localhost/hibernate</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;一直没找到解决办法，最后发现是hibernate.cfg.xml配置文件中实体类的映射忘记修改了，修改正确后，hibernate正常建表，主键。遇到此类问题，可以作为一个排查的方向。</p>
 
       
 
@@ -272,11 +231,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ID</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">联合主键</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">一对多关联</a>
         		</li>
       		
 		</ul>
@@ -332,7 +287,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/28/Hibernate_ID/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/02/Hibernate_one2many_many2one_uni_fk/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -346,18 +301,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/29/Hibernate_session/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/03/Hibernate_component/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          openSession()跟getCurrentSession()方法之间的区别
+          Hibernate对象关联之组件关联
         
       </div>
     </a>
   
   
-    <a href="/2017/07/27/Hibernate_cfg1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hibernate基本配置</div>
+    <a href="/2017/08/02/Hibernate_Many2Many/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hibernate对象关联之多对多关联</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -387,7 +342,7 @@
   
 
   
-  <div id="SOHUCS" sid="Hibernate_ID" ></div> 
+  <div id="SOHUCS" sid="Hibernate_one2many_many2one_uni_fk" ></div> 
 <script type="text/javascript">
 	var_config={
 	skin: 'black'
