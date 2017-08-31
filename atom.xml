@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-31T01:51:05.784Z</updated>
+  <updated>2017-08-31T01:54:19.447Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/08/01/Hibernate_one2one_uni_fk/"/>
     <id>http://yoursite.com/2017/08/01/Hibernate_one2one_uni_fk/</id>
     <published>2017-08-01T03:47:29.000Z</published>
-    <updated>2017-08-31T01:51:05.784Z</updated>
+    <updated>2017-08-31T01:54:19.447Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Hibernate单向外键关联配置"><a href="#Hibernate单向外键关联配置" class="headerlink" title="Hibernate单向外键关联配置"></a>Hibernate单向外键关联配置</h3><ul>
 <li>Annotation单向外键关联配置<ul>
@@ -29,6 +29,7 @@
 </ul>
 </li>
 </ul>
+<a id="more"></a> 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">@Entity</div><div class="line">public class Husband &#123;</div><div class="line">	</div><div class="line">	private int id;</div><div class="line">	private String name;</div><div class="line">	private Wife wife;</div><div class="line">	</div><div class="line">	@Id</div><div class="line">	@GeneratedValue</div><div class="line">	public int getId() &#123;</div><div class="line">		return id;</div><div class="line">	&#125;</div><div class="line">	public void setId(int id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line">	@OneToOne</div><div class="line">	@JoinColumn(name=&quot;wifeId&quot;)</div><div class="line">	public Wife getWife() &#123;</div><div class="line">		return wife;</div><div class="line">	&#125;</div><div class="line">	public void setWife(Wife wife) &#123;</div><div class="line">		this.wife = wife;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>XML单向外键关联配置<ul>
@@ -68,7 +69,12 @@
     <summary type="html">
     
       &lt;h3 id=&quot;Hibernate单向外键关联配置&quot;&gt;&lt;a href=&quot;#Hibernate单向外键关联配置&quot; class=&quot;headerlink&quot; title=&quot;Hibernate单向外键关联配置&quot;&gt;&lt;/a&gt;Hibernate单向外键关联配置&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Anno
+&lt;li&gt;Annotation单向外键关联配置&lt;ul&gt;
+&lt;li&gt;实体类中添加关联对象&lt;/li&gt;
+&lt;li&gt;关联对象属性的get方法上添加注解@OneToOne，@JoinColumn注解用于指明生成表中外键字段的名称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
