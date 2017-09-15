@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-15T05:22:34.116Z</updated>
+  <updated>2017-09-15T05:25:07.119Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/08/04/Hibernate_one2many_many2one_crud/"/>
     <id>http://yoursite.com/2017/08/04/Hibernate_one2many_many2one_crud/</id>
     <published>2017-08-04T02:11:01.000Z</published>
-    <updated>2017-09-15T05:22:34.116Z</updated>
+    <updated>2017-09-15T05:25:07.119Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Hibernate一对多双向外键关联的CRUD操作"><a href="#Hibernate一对多双向外键关联的CRUD操作" class="headerlink" title="Hibernate一对多双向外键关联的CRUD操作"></a>Hibernate一对多双向外键关联的CRUD操作</h3><p>&emsp;&emsp;在使用Hibernate内置接口或JPA接口进行CRUD操作时，实体类的映射设置，会影响CRUD的操作结果。本文的内容就是探讨cascade和fetch属性设置对CRUD操作的影响，具体内容如下：<br><a id="more"></a></p>
 <ul>
