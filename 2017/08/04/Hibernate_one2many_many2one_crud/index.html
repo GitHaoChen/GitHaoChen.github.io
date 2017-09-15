@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 单向外键关联 | Hal的博客</title>
+  <title>Hibernate一对多多对一双向外键关联的CRUD操作 | Hal的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hal的博客">
-<meta property="og:url" content="http://yoursite.com/tags/单向外键关联/index.html">
+  <meta name="description" content="Hibernate一对多双向外键关联的CRUD操作&amp;emsp;&amp;emsp;在使用Hibernate内置接口或JPA接口进行CRUD操作时，实体类的映射设置，会影响CRUD的操作结果。本文的内容就是探讨cascade和fetch属性设置对CRUD操作的影响，具体内容如下：">
+<meta name="keywords" content="hibernate,CRUD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hibernate一对多多对一双向外键关联的CRUD操作">
+<meta property="og:url" content="http://yoursite.com/2017/08/04/Hibernate_one2many_many2one_crud/index.html">
 <meta property="og:site_name" content="Hal的博客">
+<meta property="og:description" content="Hibernate一对多双向外键关联的CRUD操作&amp;emsp;&amp;emsp;在使用Hibernate内置接口或JPA接口进行CRUD操作时，实体类的映射设置，会影响CRUD的操作结果。本文的内容就是探讨cascade和fetch属性设置对CRUD操作的影响，具体内容如下：">
+<meta property="og:image" content="https://i.imgur.com/6cx3uyt.png">
+<meta property="og:image" content="https://i.imgur.com/EWblhL1.png">
+<meta property="og:updated_time" content="2017-09-15T04:50:27.181Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hal的博客">
+<meta name="twitter:title" content="Hibernate一对多多对一双向外键关联的CRUD操作">
+<meta name="twitter:description" content="Hibernate一对多双向外键关联的CRUD操作&amp;emsp;&amp;emsp;在使用Hibernate内置接口或JPA接口进行CRUD操作时，实体类的映射设置，会影响CRUD的操作结果。本文的内容就是探讨cascade和fetch属性设置对CRUD操作的影响，具体内容如下：">
+<meta name="twitter:image" content="https://i.imgur.com/6cx3uyt.png">
   
     <link rel="alternative" href="/atom.xml" title="Hal的博客" type="application/atom+xml">
   
@@ -155,36 +163,82 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Hibernate_one2many_many2one_crud" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/01/Hibernate_one2one_uni_fk/" class="archive-article-date">
-  	<time datetime="2017-08-01T03:47:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/01/Hibernate_one2one_uni_fk/">Hibernate对象关联之一对一关联</a>
+    <h1 class="article-title" itemprop="name">
+      Hibernate一对多多对一双向外键关联的CRUD操作
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/08/04/Hibernate_one2many_many2one_crud/" class="archive-article-date">
+  	<time datetime="2017-08-04T02:11:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Hibernate一对多双向外键关联的CRUD操作"><a href="#Hibernate一对多双向外键关联的CRUD操作" class="headerlink" title="Hibernate一对多双向外键关联的CRUD操作"></a>Hibernate一对多双向外键关联的CRUD操作</h3><p>&emsp;&emsp;在使用Hibernate内置接口或JPA接口进行CRUD操作时，实体类的映射设置，会影响CRUD的操作结果。本文的内容就是探讨cascade和fetch属性设置对CRUD操作的影响，具体内容如下：<br><a id="more"></a></p>
+<ul>
+<li>cascade属性设置<ul>
+<li>cascade可以设定持久化时对于关联对象的级联操作，CUD操作受cascade属性影响，R操作不熟不受cascade属性的影响</li>
+<li>cascade属性仅仅是帮开发者减少了编程的麻烦，开发过程中也可以不使用</li>
+<li>取值范围：CascadeType.ALL，CascadeType.PERSIST，CascadeType.MERGE，CascadeType.REFRESH，CascadeType.REMOVE，CascadeType.DETACH</li>
+</ul>
+</li>
+</ul>
+<h4 id="cascade使用示例"><a href="#cascade使用示例" class="headerlink" title="cascade使用示例"></a>cascade使用示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line">//Group实体类</div><div class="line">@Entity</div><div class="line">@Table(name = &quot;t_group&quot;)</div><div class="line">public class Group &#123;</div><div class="line"></div><div class="line">	private int id;</div><div class="line">	private String name;</div><div class="line">	private Set&lt;User&gt; users = new HashSet&lt;User&gt;();</div><div class="line"></div><div class="line">	@Id</div><div class="line">	@GeneratedValue</div><div class="line">	public int getId() &#123;</div><div class="line">		return id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setId(int id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//cascade属性设置为CascadeType.ALL，表明CUD操作都会做级联操作</div><div class="line">	@OneToMany(mappedBy = &quot;group&quot;, cascade = &#123; CascadeType.ALL &#125;)</div><div class="line">	public Set&lt;User&gt; getUsers() &#123;</div><div class="line">		return users;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setUsers(Set&lt;User&gt; users) &#123;</div><div class="line">		this.users = users;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">//User实体类</div><div class="line">@Entity</div><div class="line">@Table(name = &quot;t_user&quot;)</div><div class="line">public class User &#123;</div><div class="line"></div><div class="line">	private int id;</div><div class="line">	private String name;</div><div class="line">	private Group group;</div><div class="line"></div><div class="line">	@Id</div><div class="line">	@GeneratedValue</div><div class="line">	public int getId() &#123;</div><div class="line">		return id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setId(int id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//cascade属性设置为CascadeType.ALL，表明CUD操作都会做级联操作</div><div class="line">	@ManyToOne(cascade = &#123; CascadeType.ALL&#125;)</div><div class="line">	public Group getGroup() &#123;</div><div class="line">		return group;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setGroup(Group group) &#123;</div><div class="line">		this.group = group;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="Save测试方法："><a href="#Save测试方法：" class="headerlink" title="Save测试方法："></a>Save测试方法：</h5><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@Test</div><div class="line">public void testSaveUser()&#123;</div><div class="line">	Group g = new Group();</div><div class="line">	g.setName(&quot;gr&quot;);</div><div class="line">	User u = new User();</div><div class="line">	u.setName(&quot;chenhao&quot;);</div><div class="line">	//设置双向关系</div><div class="line">	g.getUsers().add(u);</div><div class="line">	u.setGroup(g);</div><div class="line">	Session s = sf.getCurrentSession();</div><div class="line">	s.beginTransaction();</div><div class="line">	//存储User对象，观察会不会级联存储Group对象</div><div class="line">	s.save(u);</div><div class="line">	s.getTransaction().commit();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/6cx3uyt.png" alt=""><br>由于User实体类cascade设置了CascadeType.ALL，CUD操作都会做级联操作，所以在存储User时也会级联存储Group</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">@Test</div><div class="line">public void testSaveGroup()&#123;</div><div class="line">	//双向关系要设定双向关联</div><div class="line">	User u1 = new User();</div><div class="line">	u1.setName(&quot;u1&quot;);</div><div class="line">	User u2 = new User();</div><div class="line">	u2.setName(&quot;u2&quot;);</div><div class="line">	Group g = new Group();</div><div class="line">	g.setName(&quot;gr&quot;);</div><div class="line">	g.getUsers().add(u1);</div><div class="line">	g.getUsers().add(u2);</div><div class="line">	u1.setGroup(g);</div><div class="line">	u2.setGroup(g);</div><div class="line">	Session s = sf.getCurrentSession();</div><div class="line">	s.beginTransaction();</div><div class="line">	s.save(g);</div><div class="line">	s.getTransaction().commit();</div><div class="line">&#125;</div><div class="line">``` </div><div class="line">&gt; ![](https://i.imgur.com/AzwQO6L.png)</div><div class="line"></div><div class="line"></div><div class="line">##### Update测试方法:</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>@Test<br>public void testUpdateUser(){<br>    testSaveGroup();<br>    Session s = sf.getCurrentSession();<br>    s.beginTransaction();<br>    User u = (User)s.get(User.class, 2);<br>    s.getTransaction().commit();<br>    u.setName(“user”);<br>    u.getGroup().setName(“agggg”);<br>    Session s2 = sf.getCurrentSession();<br>    s2.beginTransaction();<br>    //update方法会级联修改Group<br>    s2.update(u);<br>    s2.getTransaction().commit();<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; ![](https://i.imgur.com/az3HR5O.png)</div><div class="line">##### Delete测试方法：</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>@Test<br>public void testDeleteUser(){<br>    testSaveGroup();<br>    Session s = sf.getCurrentSession();<br>    s.beginTransaction();<br>    User u = (User)s.load(User.class, 2);<br>    s.delete(u);<br>    s.getTransaction().commit();<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; ![](https://i.imgur.com/WNKuo0h.png)</div><div class="line">&gt; 可以看到将所有的user都删除了，grouop也删除除了，因为UserUser实体类cascade设置了CascadeType.ALL，所以在删除User时也会级联删除Group，同时Group实体类cascade也设置了CascadeType.ALL，所以会级联删除User。所以结果会是删除所有的同组user及所在组的group记录</div><div class="line">&gt; 实际应用中这种操作往往是不合理的，下面介绍打破这种级联删除的方法</div><div class="line">&gt; 方法1： 手动将User对象的Group属性设置为null，打破级联关系</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>@Test<br>public void testDeleteUser(){<br>    testSaveGroup();<br>    Session s = sf.getCurrentSession();<br>    s.beginTransaction();<br>    User u = (User)s.load(User.class, 2);<br>    //打破关联关系，避免级联删除<br>    u.setGroup(null);<br>    s.delete(u);<br>    s.getTransaction().commit();<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; ![](https://i.imgur.com/VG3Hkdz.png)</div><div class="line">&gt; 方法2： 使用HQL</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>@Test<br>public void testDeleteUser(){<br>    testSaveGroup();<br>    Session s = sf.getCurrentSession();<br>    s.beginTransaction();<br>    User u = (User)s.load(User.class, 2);<br>    s.delete(u);<br>    //使用HQL<br>    /<em>s.createQuery(“delete from User u  where u.id =2”).executeUpdate();</em>/<br>    s.getTransaction().commit();<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">*注意：cascade的属性指明做什么操作的时候跟关联的对象是绑在一起的，如果属性设置的persist，那么persist操作时对象是绑定在一起的，如果属性设置的是merge，那么merge操作时对象是绑定在一起的，如果属性设置的是refresh，那么refresh操作时对象是绑定在一起的，如果属性设置的是remove，对于hibernate来说delete操作时对象是绑定在一起的，会与EntityManager(JPA/EJB3)来说remove操作时对象是绑定在一起的*</div><div class="line"></div><div class="line">- fetch属性设置</div><div class="line">  - getch可以设定持久化查询操作时对于关联对象的级联操作</div><div class="line">  - 对于一对多关系，多的那一方默认值为fetch=FetchType.LAZY(不级联查询)，一的那一方默认值为fetch=FetchType.EAGER</div><div class="line">  - 取值范围：FetchType.LAZY，FetchType.EAGER</div><div class="line"></div><div class="line">#### fetch使用示例</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>@Test<br>public void testGetUser(){<br>    testSaveGroup();<br>    Session s = sf.getCurrentSession();<br>    s.beginTransaction();<br>    User u = (User)s.get(User.class, 2);<br>    System.out.println(u.getGroup().getName());<br>    s.getTransaction().commit();<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; ![](https://i.imgur.com/KrB9lLh.png)</div><div class="line">&gt; User默认的FetchType为EAGER(级联查询)，所以可以取到Group的信息</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>@Test<br>public void testGetGroup(){<br>    testSaveGroup();<br>    Session s = sf.getCurrentSession();<br>    s.beginTransaction();<br>    Group g = (Group)s.get(Group.class, 1);<br>    s.getTransaction().commit();<br>    System.out.println(g.getName());<br>    System.out.println(g.getUsers().size());<br>}<br>```</p>
+<blockquote>
+<p>在测试GetGroup方法，当打印g.getUsers().size()时，会报错，因为Group的FetchType默认为LAZY，所以不会去取group下的User的信息，session中不存在user的信息，使用时会报错<br>将Group的FetchType改为EAGER重新测试<br><img src="https://i.imgur.com/EWblhL1.png" alt=""><br>会进行级联查询，取出group下的user信息</p>
+</blockquote>
+<p><em>注意：使用fetch时尽量不要双方都设置为EAGER，有可能会发出多余的查询语句；另外双方都设置fetch的时候需要谨慎，结合具体应用，一般用LAZY不使用EAGER，在多方数量不多的时候可以考虑使用，因为需要级联取出的数量不多，对效率影响较小</em></p>
+<h4 id="实验总结："><a href="#实验总结：" class="headerlink" title="实验总结："></a>实验总结：</h4><ul>
+<li><p>映射模型</p>
+<ul>
+<li>jpa annotation</li>
+<li>hibernate annotation extension</li>
+<li>hibernate xml</li>
+<li>jpaxml</li>
+</ul>
+</li>
+<li><p>编程接口</p>
+<ul>
+<li>jpa</li>
+<li>hibernate</li>
+</ul>
+</li>
+<li>数据查询语言<ul>
+<li>HQL</li>
+<li>EJBQL(JPQL)</li>
+</ul>
+</li>
+<li>如果想要做删除或更新，应先做load(get)，然后对对象进行更新。除非精确知道ID</li>
+<li>如果想要消除关联关系，先设定关系为null，再删除对应记录，否则有可能会产生垃圾数据</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -194,25 +248,124 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">单向外键关联</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CRUD</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/04/Hibernate_one2many_many2one_crud/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/08/03/Hibernate_Many2Many/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hibernate对象关联之多对多关联</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="Hibernate_one2many_many2one_crud" ></div> 
+<script type="text/javascript">
+	var_config={
+	skin: 'black'
+	}
+</script>
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cyt6NISOy"; 
+var conf = "6b621df5cee079320c3596fb8154a44e"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+  
+
+  
 
 
           </div>
@@ -237,9 +390,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
