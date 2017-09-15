@@ -6,21 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>openSession()跟getCurrentSession()方法之间的区别 | Hal的博客</title>
+  <title>Hibernate一对多多对一双向外键关联的CRUD操作 | Hal的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hibernate中openSession()跟getCurrentSession()方法之间的区别&amp;emsp;&amp;emsp;openSession()和getCurrentSession()都用来产生session对象，区别如下：  采用getCurrentSession()创建的Session会绑定到当前的线程中去，而采用OpenSession()则不会。 采用getCurrentSession">
-<meta name="keywords" content="hibernate,Session">
+  <meta name="description" content="Hibernate一对多双向外键关联的CRUD操作&amp;emsp;&amp;emsp;在使用Hibernate内置接口或JPA接口进行CRUD操作时，实体类的映射设置，会影响CRUD的操作结果。本文的内容就是探讨cascade和fetch属性设置对CRUD操作的影响，具体内容如下：">
+<meta name="keywords" content="hibernate,CRUD">
 <meta property="og:type" content="article">
-<meta property="og:title" content="openSession()跟getCurrentSession()方法之间的区别">
-<meta property="og:url" content="http://yoursite.com/2017/07/29/Hibernate_session/index.html">
+<meta property="og:title" content="Hibernate一对多多对一双向外键关联的CRUD操作">
+<meta property="og:url" content="http://yoursite.com/2017/08/04/Hibernate_one2many_many2one_crud/index.html">
 <meta property="og:site_name" content="Hal的博客">
-<meta property="og:description" content="hibernate中openSession()跟getCurrentSession()方法之间的区别&amp;emsp;&amp;emsp;openSession()和getCurrentSession()都用来产生session对象，区别如下：  采用getCurrentSession()创建的Session会绑定到当前的线程中去，而采用OpenSession()则不会。 采用getCurrentSession">
-<meta property="og:image" content="http://i.imgur.com/b3GbF5Z.png">
-<meta property="og:updated_time" content="2017-08-16T05:34:47.627Z">
+<meta property="og:description" content="Hibernate一对多双向外键关联的CRUD操作&amp;emsp;&amp;emsp;在使用Hibernate内置接口或JPA接口进行CRUD操作时，实体类的映射设置，会影响CRUD的操作结果。本文的内容就是探讨cascade和fetch属性设置对CRUD操作的影响，具体内容如下：">
+<meta property="og:image" content="https://i.imgur.com/CPiTYFU.png">
+<meta property="og:image" content="https://i.imgur.com/DIba2s7.png">
+<meta property="og:image" content="https://i.imgur.com/B0M0ggw.png">
+<meta property="og:image" content="https://i.imgur.com/csGrEYW.png">
+<meta property="og:image" content="https://i.imgur.com/2j4fbie.png">
+<meta property="og:image" content="https://i.imgur.com/YvFzjRn.png">
+<meta property="og:image" content="https://i.imgur.com/jkUTS9y.png">
+<meta property="og:updated_time" content="2017-09-15T06:15:08.122Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="openSession()跟getCurrentSession()方法之间的区别">
-<meta name="twitter:description" content="hibernate中openSession()跟getCurrentSession()方法之间的区别&amp;emsp;&amp;emsp;openSession()和getCurrentSession()都用来产生session对象，区别如下：  采用getCurrentSession()创建的Session会绑定到当前的线程中去，而采用OpenSession()则不会。 采用getCurrentSession">
-<meta name="twitter:image" content="http://i.imgur.com/b3GbF5Z.png">
+<meta name="twitter:title" content="Hibernate一对多多对一双向外键关联的CRUD操作">
+<meta name="twitter:description" content="Hibernate一对多双向外键关联的CRUD操作&amp;emsp;&amp;emsp;在使用Hibernate内置接口或JPA接口进行CRUD操作时，实体类的映射设置，会影响CRUD的操作结果。本文的内容就是探讨cascade和fetch属性设置对CRUD操作的影响，具体内容如下：">
+<meta name="twitter:image" content="https://i.imgur.com/CPiTYFU.png">
   
     <link rel="alternative" href="/atom.xml" title="Hal的博客" type="application/atom+xml">
   
@@ -162,78 +168,101 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Hibernate_session" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Hibernate_one2many_many2one_crud" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      openSession()跟getCurrentSession()方法之间的区别
+      Hibernate一对多多对一双向外键关联的CRUD操作
     </h1>
   
 
         
-        <a href="/2017/07/29/Hibernate_session/" class="archive-article-date">
-  	<time datetime="2017-07-29T04:43:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-29</time>
+        <a href="/2017/08/04/Hibernate_one2many_many2one_crud/" class="archive-article-date">
+  	<time datetime="2017-08-04T02:11:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="hibernate中openSession-跟getCurrentSession-方法之间的区别"><a href="#hibernate中openSession-跟getCurrentSession-方法之间的区别" class="headerlink" title="hibernate中openSession()跟getCurrentSession()方法之间的区别"></a>hibernate中openSession()跟getCurrentSession()方法之间的区别</h3><p>&emsp;&emsp;openSession()和getCurrentSession()都用来产生session对象，区别如下：</p>
+        <h3 id="Hibernate一对多双向外键关联的CRUD操作"><a href="#Hibernate一对多双向外键关联的CRUD操作" class="headerlink" title="Hibernate一对多双向外键关联的CRUD操作"></a>Hibernate一对多双向外键关联的CRUD操作</h3><p>&emsp;&emsp;在使用Hibernate内置接口或JPA接口进行CRUD操作时，实体类的映射设置，会影响CRUD的操作结果。本文的内容就是探讨cascade和fetch属性设置对CRUD操作的影响，具体内容如下：<br><a id="more"></a></p>
 <ul>
-<li>采用getCurrentSession()创建的Session会绑定到当前的线程中去，而采用OpenSession()则不会。</li>
-<li>采用getCurrentSession()创建的Session在commit或rollback后会自动关闭，采用OpenSession()必须手动关闭。</li>
+<li>cascade属性设置<ul>
+<li>cascade可以设定持久化时对于关联对象的级联操作，CUD操作受cascade属性影响，R操作不熟不受cascade属性的影响</li>
+<li>cascade属性仅仅是帮开发者减少了编程的麻烦，开发过程中也可以不使用</li>
+<li>取值范围：CascadeType.ALL，CascadeType.PERSIST，CascadeType.MERGE，CascadeType.REFRESH，CascadeType.REMOVE，CascadeType.DETACH</li>
 </ul>
-<a id="more"></a>
-<ul>
-<li>采用getCurrentSession()需要在Hibernate.cfg.xml配置文件中加入如下配置：<blockquote>
-<p>如果是本地事物，及JDBC一个数据库：<br>&lt;propety name=”Hibernate.current_session_context_class”&gt;thread&lt;/propety&gt;<br>如果是全局事物，及jta事物、多个数据库资源或事物资源：<br>&lt;propety name=”Hibernate.current_session_context_class”&gt;jta&lt;/propety&gt;<br><img src="http://i.imgur.com/b3GbF5Z.png" alt=""><br>JTA(Java transaction api)用于管理分布式数据库之间事务，tomcat无法提供</p>
+</li>
+</ul>
+<h4 id="cascade使用示例"><a href="#cascade使用示例" class="headerlink" title="cascade使用示例"></a>cascade使用示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line">//Group实体类</div><div class="line">@Entity</div><div class="line">@Table(name = &quot;t_group&quot;)</div><div class="line">public class Group &#123;</div><div class="line"></div><div class="line">	private int id;</div><div class="line">	private String name;</div><div class="line">	private Set&lt;User&gt; users = new HashSet&lt;User&gt;();</div><div class="line"></div><div class="line">	@Id</div><div class="line">	@GeneratedValue</div><div class="line">	public int getId() &#123;</div><div class="line">		return id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setId(int id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//cascade属性设置为CascadeType.ALL，表明CUD操作都会做级联操作</div><div class="line">	@OneToMany(mappedBy = &quot;group&quot;, cascade = &#123; CascadeType.ALL &#125;)</div><div class="line">	public Set&lt;User&gt; getUsers() &#123;</div><div class="line">		return users;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setUsers(Set&lt;User&gt; users) &#123;</div><div class="line">		this.users = users;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">//User实体类</div><div class="line">@Entity</div><div class="line">@Table(name = &quot;t_user&quot;)</div><div class="line">public class User &#123;</div><div class="line"></div><div class="line">	private int id;</div><div class="line">	private String name;</div><div class="line">	private Group group;</div><div class="line"></div><div class="line">	@Id</div><div class="line">	@GeneratedValue</div><div class="line">	public int getId() &#123;</div><div class="line">		return id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setId(int id) &#123;</div><div class="line">		this.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//cascade属性设置为CascadeType.ALL，表明CUD操作都会做级联操作</div><div class="line">	@ManyToOne(cascade = &#123; CascadeType.ALL&#125;)</div><div class="line">	public Group getGroup() &#123;</div><div class="line">		return group;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setGroup(Group group) &#123;</div><div class="line">		this.group = group;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="Save测试方法："><a href="#Save测试方法：" class="headerlink" title="Save测试方法："></a>Save测试方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@Test</div><div class="line">public void testSaveUser()&#123;</div><div class="line">	Group g = new Group();</div><div class="line">	g.setName(&quot;gr&quot;);</div><div class="line">	User u = new User();</div><div class="line">	u.setName(&quot;chenhao&quot;);</div><div class="line">	//设置双向关系</div><div class="line">	g.getUsers().add(u);</div><div class="line">	u.setGroup(g);</div><div class="line">	Session s = sf.getCurrentSession();</div><div class="line">	s.beginTransaction();</div><div class="line">	//存储User对象，观察会不会级联存储Group对象</div><div class="line">	s.save(u);</div><div class="line">	s.getTransaction().commit();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><img src="https://i.imgur.com/CPiTYFU.png" alt=""><br>由于User实体类cascade设置了CascadeType.ALL，CUD操作都会做级联操作，所以在存储User时也会级联存储Group</p>
 </blockquote>
-</li>
-</ul>
-<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><ul>
-<li>Session的理解：<br>&emsp;&emsp;Session是管理一个数据库的任务单元，可以通过调用Session的方法来实现对数据库的具体操作（增、删、改、查）</li>
-<li>Session的主要方法及说明：<ul>
-<li>save()</li>
-<li>delete()</li>
-<li>update()</li>
-<li>saveOrUpdate()</li>
-<li>load()</li>
-<li>get()</li>
-<li>clear()：无论是load()还是get()，都会先查找缓存(一级缓存),如果没有才会查找数据库，调用clear()方法可以强制清除session缓存  </li>
-<li>flush()：强制进行从内存到数据库的同步</li>
-</ul>
-</li>
-<li>get()和load()的区别：<ul>
-<li>不存在对应对象时表现不一样，load()不会报错，get()会报错</li>
-<li>load()返回的是代理对象，等到真正使用对象内容时才发出sql语句</li>
-<li>get()直接从数据库加载，不会延迟</li>
-</ul>
-</li>
-<li>update()方法：<ul>
-<li>用来更新detached对象，更新完之后，对象转换为persistent状态(get后提交，对象转换为detached状态，然后通过set方法设置对象属性的值，再调用session的update方法)</li>
-<li>更新Transient对象会报错</li>
-<li>可以更新自己设定id的Transient对象，如果数据中存在数据，可以更新。不存在不会报错</li>
-<li>如果一个对象是persistent状态，只要设定不同状态，session提交后就会更新（如先get，然后通过实体set方法设定某个属性值，在提交时会同时update数据库中对应的列）</li>
-</ul>
-</li>
-<li><p>使用update()方法进行部分更改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">@Test</div><div class="line">public void testSaveGroup()&#123;</div><div class="line">	//双向关系要设定双向关联</div><div class="line">	User u1 = new User();</div><div class="line">	u1.setName(&quot;u1&quot;);</div><div class="line">	User u2 = new User();</div><div class="line">	u2.setName(&quot;u2&quot;);</div><div class="line">	Group g = new Group();</div><div class="line">	g.setName(&quot;gr&quot;);</div><div class="line">	g.getUsers().add(u1);</div><div class="line">	g.getUsers().add(u2);</div><div class="line">	u1.setGroup(g);</div><div class="line">	u2.setGroup(g);</div><div class="line">	Session s = sf.getCurrentSession();</div><div class="line">	s.beginTransaction();</div><div class="line">	s.save(g);</div><div class="line">	s.getTransaction().commit();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><img src="https://i.imgur.com/DIba2s7.png" alt=""></p>
+</blockquote>
+<h5 id="Update测试方法"><a href="#Update测试方法" class="headerlink" title="Update测试方法:"></a>Update测试方法:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@Test</div><div class="line">public void testUpdateUser()&#123;	</div><div class="line">	testSaveGroup();	</div><div class="line">	Session s = sf.getCurrentSession();</div><div class="line">	s.beginTransaction();</div><div class="line">	User u = (User)s.get(User.class, 2);	</div><div class="line">	s.getTransaction().commit();		</div><div class="line">	u.setName(&quot;user&quot;);</div><div class="line">	u.getGroup().setName(&quot;agggg&quot;);	</div><div class="line">	Session s2 = sf.getCurrentSession();</div><div class="line">	s2.beginTransaction();</div><div class="line">	//update方法会级联修改Group</div><div class="line">	s2.update(u);	</div><div class="line">	s2.getTransaction().commit();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><img src="https://i.imgur.com/B0M0ggw.png" alt=""></p>
+</blockquote>
+<h5 id="Delete测试方法："><a href="#Delete测试方法：" class="headerlink" title="Delete测试方法："></a>Delete测试方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@Test</div><div class="line">public void testDeleteUser()&#123;	</div><div class="line">	testSaveGroup();	</div><div class="line">	Session s = sf.getCurrentSession();</div><div class="line">	s.beginTransaction(); </div><div class="line">	User u = (User)s.load(User.class, 2);</div><div class="line">	s.delete(u);</div><div class="line">	s.getTransaction().commit();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><img src="https://i.imgur.com/csGrEYW.png" alt=""><br>可以看到将所有的user都删除了，grouop也删除除了，因为UserUser实体类cascade设置了CascadeType.ALL，所以在删除User时也会级联删除Group，同时Group实体类cascade也设置了CascadeType.ALL，所以会级联删除User。所以结果会是删除所有的同组user及所在组的group记录</p>
+</blockquote>
+<p>实际应用中这种操作往往是不合理的，下面介绍打破这种级联删除的方法,<br>方法1： 手动将User对象的Group属性设置为null，打破级联关系<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@Test</div><div class="line">public void testDeleteUser()&#123;			</div><div class="line">	testSaveGroup();	</div><div class="line">	Session s = sf.getCurrentSession();</div><div class="line">	s.beginTransaction(); </div><div class="line">	User u = (User)s.load(User.class, 2);</div><div class="line">	//打破关联关系，避免级联删除</div><div class="line">	u.setGroup(null);</div><div class="line">	s.delete(u);</div><div class="line">	s.getTransaction().commit();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p><img src="https://i.imgur.com/2j4fbie.png" alt=""></p>
+</blockquote>
+<p>方法2： 使用HQL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@Test</div><div class="line">public void testDeleteUser()&#123;		</div><div class="line">	testSaveGroup();	</div><div class="line">	Session s = sf.getCurrentSession();</div><div class="line">	s.beginTransaction(); </div><div class="line">	User u = (User)s.load(User.class, 2);</div><div class="line">	s.delete(u);	</div><div class="line">	//使用HQL</div><div class="line">	/*s.createQuery(&quot;delete from User u  where u.id =2&quot;).executeUpdate();*/</div><div class="line">	s.getTransaction().commit();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><em>注意：cascade的属性指明做什么操作的时候跟关联的对象是绑在一起的，如果属性设置的persist，那么persist操作时对象是绑定在一起的，如果属性设置的是merge，那么merge操作时对象是绑定在一起的，如果属性设置的是refresh，那么refresh操作时对象是绑定在一起的，如果属性设置的是remove，对于hibernate来说delete操作时对象是绑定在一起的，会与EntityManager(JPA/EJB3)来说remove操作时对象是绑定在一起的</em></p>
 <ul>
-<li>xml设定property标签的update属性，Annotation设定@column的updatable属性，设定属性值为true则表明该字段不参与update更新。不过这种方式很少使用，因为不灵活。</li>
-<li>使用xml中class的dynamic-update属性，JPA中没有对应的属性。xml中使用时，同一个session可以做到只更改设定属性对应字段，跨session不可以，不过可以使用merge来实现。</li>
+<li>fetch属性设置<ul>
+<li>getch可以设定持久化查询操作时对于关联对象的级联操作</li>
+<li>对于一对多关系，多的那一方默认值为fetch=FetchType.LAZY(不级联查询)，一的那一方默认值为fetch=FetchType.EAGER</li>
+<li>取值范围：FetchType.LAZY，FetchType.EAGER</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Session session = sf.getCurrentSession();</div><div class="line">session.beginTransaction();</div><div class="line">Student t = (Student) session.get(Student.class, 1);</div><div class="line">System.out.println(t.getName());</div><div class="line">t.setName(&quot;testUpdate5&quot;);</div><div class="line">session.getTransaction().commit();</div><div class="line"></div><div class="line">//跨session更新</div><div class="line">t.setName(&quot;testUpdate6&quot;);</div><div class="line">Session session1 = sf.getCurrentSession();</div><div class="line">session1.beginTransaction();</div><div class="line">session1.update(t);</div><div class="line">//System.out.println(t.getName());</div><div class="line">session1.getTransaction().commit();</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">   Session session = sf.getCurrentSession();</div><div class="line">session.beginTransaction();</div><div class="line">Student t = (Student)session.get(Student.class, 1);</div><div class="line">System.out.println(t.getName());</div><div class="line">t.setName(&quot;testUpdate6&quot;);</div><div class="line">session.getTransaction().commit();</div><div class="line">	</div><div class="line">//跨session更新,并只更新改变字段</div><div class="line">t.setName(&quot;testUpdate7&quot;);</div><div class="line">Session session1 = sf.getCurrentSession();</div><div class="line">session1.beginTransaction();</div><div class="line">session1.merge(t);</div><div class="line">System.out.println(t.getName());</div><div class="line">session1.getTransaction().commit();</div></pre></td></tr></table></figure>
-<ul>
-<li>使用HQL(建议使用)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Session session = sf.getCurrentSession();</div><div class="line">session.beginTransaction();</div><div class="line">Query q = session.createQuery(&quot;update Student s set s.name = &apos;z5&apos; where s.id = 1&quot;);</div><div class="line">q.executeUpdate();</div><div class="line">session.getTransaction().commit();</div></pre></td></tr></table></figure>
 </li>
-<li><p>clear()方法说明<br>&emsp;&emsp;clear方法会强制清除session缓存，如下如不加session2.clear();则第二次取t2时并不会再进行一次查询操作。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Session session2 = sf.getCurrentSession();</div><div class="line">session2.beginTransaction();</div><div class="line">Teacher t = (Teacher) session2.load(Teacher.class, 1);</div><div class="line">System.out.println(t.getName());</div><div class="line"></div><div class="line">//	</div><div class="line">session2.clear();</div><div class="line">	</div><div class="line">Teacher t2 = (Teacher) session2.load(Teacher.class, 1);</div><div class="line">System.out.println(t2.getName());</div><div class="line">	</div><div class="line">session2.getTransaction().commit();</div></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="fetch使用示例"><a href="#fetch使用示例" class="headerlink" title="fetch使用示例"></a>fetch使用示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@Test</div><div class="line">public void testGetUser()&#123;	</div><div class="line">	testSaveGroup();	</div><div class="line">	Session s = sf.getCurrentSession();</div><div class="line">	s.beginTransaction();</div><div class="line">	User u = (User)s.get(User.class, 2);</div><div class="line">	System.out.println(u.getGroup().getName());</div><div class="line">	s.getTransaction().commit();		</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><img src="https://i.imgur.com/YvFzjRn.png" alt=""><br>User默认的FetchType为EAGER(级联查询)，所以可以取到Group的信息</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@Test</div><div class="line">public void testGetGroup()&#123;	</div><div class="line">	testSaveGroup();	</div><div class="line">	Session s = sf.getCurrentSession();</div><div class="line">	s.beginTransaction();</div><div class="line">	Group g = (Group)s.get(Group.class, 1);</div><div class="line">	s.getTransaction().commit();	</div><div class="line">	System.out.println(g.getName());</div><div class="line">	System.out.println(g.getUsers().size());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在测试GetGroup方法，当打印g.getUsers().size()时，会报错，因为Group的FetchType默认为LAZY，所以不会去取group下的User的信息，session中不存在user的信息，使用时会报错</p>
+</blockquote>
+<p>将Group的FetchType改为EAGER重新测试</p>
+<blockquote>
+<p><img src="https://i.imgur.com/jkUTS9y.png" alt=""><br>会进行级联查询，取出group下的user信息</p>
+</blockquote>
+<p><em>注意：使用fetch时尽量不要双方都设置为EAGER，有可能会发出多余的查询语句；另外双方都设置fetch的时候需要谨慎，结合具体应用，一般用LAZY不使用EAGER，在多方数量不多的时候可以考虑使用，因为需要级联取出的数量不多，对效率影响较小</em></p>
+<h4 id="实验总结："><a href="#实验总结：" class="headerlink" title="实验总结："></a>实验总结：</h4><ul>
+<li><p>映射模型</p>
+<ul>
+<li>jpa annotation</li>
+<li>hibernate annotation extension</li>
+<li>hibernate xml</li>
+<li>jpaxml</li>
+</ul>
+</li>
+<li><p>编程接口</p>
+<ul>
+<li>jpa</li>
+<li>hibernate</li>
+</ul>
+</li>
+<li>数据查询语言<ul>
+<li>HQL</li>
+<li>EJBQL(JPQL)</li>
+</ul>
+</li>
+<li>如果想要做删除或更新，应先做load(get)，然后对对象进行更新。除非精确知道ID</li>
+<li>如果想要消除关联关系，先设定关系为null，再删除对应记录，否则有可能会产生垃圾数据</li>
 </ul>
 
       
@@ -252,7 +281,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Session</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CRUD</a>
         		</li>
       		
 		</ul>
@@ -308,7 +337,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/29/Hibernate_session/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/04/Hibernate_one2many_many2one_crud/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -322,18 +351,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/29/Hibernate_states3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hibernate对象的三种状态
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/28/Hibernate_ID/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ID生成策略</div>
+    <a href="/2017/08/03/Hibernate_Many2Many/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hibernate对象关联之多对多关联</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -363,7 +383,7 @@
   
 
   
-  <div id="SOHUCS" sid="Hibernate_session" ></div> 
+  <div id="SOHUCS" sid="Hibernate_one2many_many2one_crud" ></div> 
 <script type="text/javascript">
 	var_config={
 	skin: 'black'
