@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2017/08/04/Hibernate_one2many_many2one_crud/</loc>
-    
-    <lastmod>2017-09-15T05:53:09.933Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2017/08/03/Hibernate_Many2Many/</loc>
     
     <lastmod>2017-09-15T01:25:27.262Z</lastmod>
