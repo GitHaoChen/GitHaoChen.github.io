@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/08/05/Hibernate_hql/</loc>
+    
+    <lastmod>2017-09-15T08:43:45.479Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/05/Hibernate_tree_mapping/</loc>
+    
+    <lastmod>2017-09-15T08:28:19.014Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/04/Hibernate_extends_mapping/</loc>
+    
+    <lastmod>2017-09-15T08:16:36.527Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/08/04/Hibernate_one2many_many2one_crud/</loc>
     
     <lastmod>2017-09-15T06:15:08.122Z</lastmod>
