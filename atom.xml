@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-18T04:31:00.382Z</updated>
+  <updated>2017-09-18T04:36:32.080Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://yoursite.com/2017/09/16/Spring_0200_JDBC/"/>
     <id>http://yoursite.com/2017/09/16/Spring_0200_JDBC/</id>
     <published>2017-09-16T07:49:39.847Z</published>
-    <updated>2017-09-18T04:31:00.382Z</updated>
+    <updated>2017-09-18T04:36:32.080Z</updated>
     
     <content type="html"><![CDATA[<hr>
-<p>title: Spring JDBC<br>date: 2017-08-06 23:54:22<br>tags:</p>
+<p>title: Spring JDBC<br>date: 2017-08-07 00:14:01<br>tags:</p>
 <ul>
 <li>Spring</li>
 <li>JDBC</li>
@@ -52,7 +52,7 @@
     <summary type="html">
     
       &lt;hr&gt;
-&lt;p&gt;title: Spring JDBC&lt;br&gt;date: 2017-08-06 23:54:22&lt;br&gt;tags:&lt;/p&gt;
+&lt;p&gt;title: Spring JDBC&lt;br&gt;date: 2017-08-07 00:14:01&lt;br&gt;tags:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Spring&lt;/li&gt;
 &lt;li&gt;JDBC&lt;/li&gt;
