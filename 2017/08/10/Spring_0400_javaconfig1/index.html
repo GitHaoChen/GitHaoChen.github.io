@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hal的博客</title>
+  <title>Spring JavaConfig配置 | Hal的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hal的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Spring JavaConfig配置&amp;emsp;&amp;emsp;从Spring 3起，JavaConfig功能已经包含在Spring核心模块，它允许开发者将bean定义在Spring配置XML文件或Java类中。但是，仍然允许使用经典的XML方式来定义bean和配置，JavaConfig是另一种替代解决方案。">
+<meta name="keywords" content="Spring,JavaConfig">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring JavaConfig配置">
+<meta property="og:url" content="http://yoursite.com/2017/08/10/Spring_0400_javaconfig1/index.html">
 <meta property="og:site_name" content="Hal的博客">
+<meta property="og:description" content="Spring JavaConfig配置&amp;emsp;&amp;emsp;从Spring 3起，JavaConfig功能已经包含在Spring核心模块，它允许开发者将bean定义在Spring配置XML文件或Java类中。但是，仍然允许使用经典的XML方式来定义bean和配置，JavaConfig是另一种替代解决方案。">
+<meta property="og:image" content="https://i.imgur.com/z6zlZex.png">
+<meta property="og:image" content="https://i.imgur.com/OxytFN0.png">
+<meta property="og:updated_time" content="2017-09-18T15:38:42.134Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hal的博客">
+<meta name="twitter:title" content="Spring JavaConfig配置">
+<meta name="twitter:description" content="Spring JavaConfig配置&amp;emsp;&amp;emsp;从Spring 3起，JavaConfig功能已经包含在Spring核心模块，它允许开发者将bean定义在Spring配置XML文件或Java类中。但是，仍然允许使用经典的XML方式来定义bean和配置，JavaConfig是另一种替代解决方案。">
+<meta name="twitter:image" content="https://i.imgur.com/z6zlZex.png">
   
     <link rel="alternative" href="/atom.xml" title="Hal的博客" type="application/atom+xml">
   
@@ -155,16 +163,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Spring_0400_javaconfig1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Spring_0400_javaconfig1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/10/Spring_0400_javaconfig1/">Spring JavaConfig配置</a>
+    <h1 class="article-title" itemprop="name">
+      Spring JavaConfig配置
     </h1>
   
 
@@ -177,10 +183,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Spring-JavaConfig配置"><a href="#Spring-JavaConfig配置" class="headerlink" title="Spring JavaConfig配置"></a>Spring JavaConfig配置</h3><p>&emsp;&emsp;从Spring 3起，JavaConfig功能已经包含在Spring核心模块，它允许开发者将bean定义在Spring配置XML文件或Java类中。<br>但是，仍然允许使用经典的XML方式来定义bean和配置，JavaConfig是另一种替代解决方案。<br>
-        
-          <a class="article-more-a" href="/2017/08/10/Spring_0400_javaconfig1/#more">more >></a>
-        
+        <h3 id="Spring-JavaConfig配置"><a href="#Spring-JavaConfig配置" class="headerlink" title="Spring JavaConfig配置"></a>Spring JavaConfig配置</h3><p>&emsp;&emsp;从Spring 3起，JavaConfig功能已经包含在Spring核心模块，它允许开发者将bean定义在Spring配置XML文件或Java类中。<br>但是，仍然允许使用经典的XML方式来定义bean和配置，JavaConfig是另一种替代解决方案。<br><a id="more"></a><br>&emsp;&emsp;如下定义在Spring容器中的bean：<br>Spring XML file - applicationContext.xml :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">	xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</div><div class="line">	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd&quot;&gt;</div><div class="line"> </div><div class="line">	&lt;bean id=&quot;helloBean&quot; class=&quot;com.lidolid.hello.impl.HelloWorldImpl&quot;&gt;</div><div class="line">		</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;如下为等效的JavaConfig的配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.config;</div><div class="line"></div><div class="line">import org.springframework.context.annotation.Bean;</div><div class="line">import org.springframework.context.annotation.Configuration;</div><div class="line">import com.yiibai.hello.HelloWorld;</div><div class="line">import com.yiibai.hello.impl.HelloWorldImpl;</div><div class="line"></div><div class="line">@Configuration</div><div class="line">public class AppConfig &#123;</div><div class="line">	</div><div class="line">    @Bean(name=&quot;helloBean&quot;)</div><div class="line">    public HelloWorld helloWorld() &#123;</div><div class="line">        return new HelloWorldImpl();</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="JavaConfig示例"><a href="#JavaConfig示例" class="headerlink" title="JavaConfig示例"></a>JavaConfig示例</h4><p>&emsp;&emsp;展示如何使用JavaConfig代替XML定义bean，使用properties文件注入bean的property内容。</p>
+<h5 id="1-工程结构"><a href="#1-工程结构" class="headerlink" title="1. 工程结构"></a>1. 工程结构</h5><p><img src="https://i.imgur.com/z6zlZex.png" alt=""></p>
+<h5 id="2-代码说明"><a href="#2-代码说明" class="headerlink" title="2. 代码说明"></a>2. 代码说明</h5><p>&emsp;&emsp;接口HelloWorld：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.hello;</div><div class="line"></div><div class="line">public interface HelloWorld &#123;</div><div class="line">	void printHelloWorld(String msg);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;HelloWorld接口实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.hello.impl;</div><div class="line"></div><div class="line">import org.springframework.beans.factory.annotation.Value;</div><div class="line"></div><div class="line">import com.lidolid.hello.HelloWorld;</div><div class="line"></div><div class="line">public class HelloWorldImpl implements HelloWorld &#123;</div><div class="line">	@Value(&quot;$&#123;app.implName&#125;&quot;)</div><div class="line">	private String implName;</div><div class="line"></div><div class="line">	@Value(&quot;$&#123;app.helloName&#125;&quot;)</div><div class="line">	private String helloName;</div><div class="line"></div><div class="line">	public String getImplName() &#123;</div><div class="line">		return implName;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setImplName(String implName) &#123;</div><div class="line">		this.implName = implName;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String getHelloName() &#123;</div><div class="line">		return helloName;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setHelloName(String helloName) &#123;</div><div class="line">		this.helloName = helloName;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public HelloWorldImpl(String implName, String helloName) &#123;</div><div class="line">		super();</div><div class="line">		this.implName = implName;</div><div class="line">		this.helloName = helloName;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public String toString() &#123;</div><div class="line">		return &quot;HelloWorldImpl [implName=&quot; + implName + &quot;, helloName=&quot; + helloName + &quot;]&quot;;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void printHelloWorld(String msg) &#123;</div><div class="line">		System.out.println(msg + &quot; &quot; + implName + &quot; &quot; + helloName);</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public HelloWorldImpl() &#123;</div><div class="line">		super();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>说明：要给property注入值，相当于xml bean定义的property属性。可以直接指定@value(“property_name”)，但是基于spring松耦合的考虑，使用properties文件注入的方式更符合松耦合的思想。</p>
+</blockquote>
+<p>&emsp;&emsp;新增bean配置类AppConfig：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.config;</div><div class="line"></div><div class="line">import org.springframework.context.annotation.Bean;</div><div class="line">import org.springframework.context.annotation.ComponentScan;</div><div class="line">import org.springframework.context.annotation.Configuration;</div><div class="line">import org.springframework.context.annotation.PropertySource;</div><div class="line">import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;</div><div class="line"></div><div class="line">import com.lidolid.hello.HelloWorld;</div><div class="line">import com.lidolid.hello.impl.HelloWorldImpl;</div><div class="line"></div><div class="line">@Configuration</div><div class="line">@ComponentScan</div><div class="line">@PropertySource(&quot;properties/cons.properties&quot;)</div><div class="line">public class AppConfig &#123;</div><div class="line">	</div><div class="line">	@Bean</div><div class="line">	public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() &#123;</div><div class="line">		return new PropertySourcesPlaceholderConfigurer();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">    @Bean(name=&quot;helloBean&quot;)</div><div class="line">    public HelloWorld helloWorld() &#123;</div><div class="line">        return new HelloWorldImpl();</div><div class="line">    &#125;	</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意：由于property值注入使用了@Value(“${app.implName}”) 这种占位符的方式，必须要配置一个PropertyPlaceholderConfigurer bean或PropertySourcesPlaceholderConfigurer bean。从Spring 3.1开始，推荐使PropertySourcesPlaceholderConfigurer，因为它能够基于Spring Environment及其属性源来解析占位符。即上述代码中的定义。<br>@PropertySource(“properties/cons.properties”)用来指明用于注入的properties文件的路径</p>
+</blockquote>
+<p>&emsp;&emsp;cons.properties文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app.implName=chenhao</div><div class="line">app.helloName=nihao</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;调用测试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.core;</div><div class="line"></div><div class="line">import org.springframework.context.ApplicationContext;</div><div class="line">import org.springframework.context.annotation.AnnotationConfigApplicationContext;</div><div class="line"></div><div class="line">import com.lidolid.config.AppConfig;</div><div class="line">import com.lidolid.hello.HelloWorld;</div><div class="line"></div><div class="line">public class App &#123;</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line"></div><div class="line">		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);</div><div class="line">		HelloWorld obj = (HelloWorld) context.getBean(&quot;helloBean&quot;);</div><div class="line"></div><div class="line">		obj.printHelloWorld(&quot;Spring Java Config&quot;);</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="3-运行结果"><a href="#3-运行结果" class="headerlink" title="3. 运行结果"></a>3. 运行结果</h5><p><img src="https://i.imgur.com/OxytFN0.png" alt=""></p>
+<blockquote>
+<p>properties文件定义的内容已经注入</p>
+</blockquote>
+<h4 id="多个bean配置类合并问题"><a href="#多个bean配置类合并问题" class="headerlink" title="多个bean配置类合并问题"></a>多个bean配置类合并问题</h4><p>&emsp;&emsp;在xml定义中，便于开发与管理，可定义多个xml文件，最终使用import标签合并到一个xml文件中，最终在使用时即可通过一个bean文件获取所有定义的bean。在JavaConfig中也有相似的功能，合并多个bean配置类。<br>xml方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">	xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</div><div class="line">	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd&quot;&gt;</div><div class="line"></div><div class="line">	&lt;import resource=&quot;database/Spring-Datasource.xml&quot; /&gt;</div><div class="line">	&lt;import resource=&quot;customer/Spring-Customer.xml&quot; /&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
+<p>JavaConfig方式：<br>SchedulerConfig配置类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.config;</div><div class="line"></div><div class="line">import org.springframework.context.annotation.Bean;</div><div class="line">import org.springframework.context.annotation.Configuration;</div><div class="line"></div><div class="line">import com.lidolid.core.SchedulerBo;</div><div class="line"></div><div class="line">@Configuration</div><div class="line">public class SchedulerConfig &#123;</div><div class="line"></div><div class="line">	@Bean(name=&quot;scheduler&quot;)</div><div class="line">	public SchedulerBo suchedulerBo()&#123;		</div><div class="line">		return new SchedulerBo();		</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>CustomerConfig配置类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.config;</div><div class="line"></div><div class="line">import org.springframework.context.annotation.Bean;</div><div class="line">import org.springframework.context.annotation.Configuration;</div><div class="line"></div><div class="line">import com.lidolid.core.CustomerBo;</div><div class="line"></div><div class="line">@Configuration</div><div class="line">public class CustomerConfig &#123;</div><div class="line"></div><div class="line">	@Bean(name = &quot;customer&quot;)</div><div class="line">	public CustomerBo customerBo() &#123;</div><div class="line">		return new CustomerBo();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>配置类的合并Appconfig：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.config;</div><div class="line"></div><div class="line">import org.springframework.context.annotation.Configuration;</div><div class="line">import org.springframework.context.annotation.Import;</div><div class="line"></div><div class="line">@Configuration</div><div class="line">@Import(&#123; CustomerConfig.class, SchedulerConfig.class &#125;)</div><div class="line">public class AppConfig &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
       
 
       
@@ -206,16 +233,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/10/Spring_0400_javaconfig1/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/10/Spring_0400_javaconfig1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/10/Spring_0301_@autowired/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring 使用@Autowired注解自动装配</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -235,740 +321,26 @@
 
 
 
-
-  
-    <article id="post-Spring_0301_@autowired" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/10/Spring_0301_@autowired/">Spring 使用@Autowired注解自动装配</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/10/Spring_0301_@autowired/" class="archive-article-date">
-  	<time datetime="2017-08-09T16:16:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Spring-使用-Autowired注解自动装配"><a href="#Spring-使用-Autowired注解自动装配" class="headerlink" title="Spring 使用@Autowired注解自动装配"></a>Spring 使用@Autowired注解自动装配</h3><p>&emsp;&emsp;在Spring中，可以使用 @Autowired 注解通过setter方法，构造函数或字段自动装配Bean,@Autowired注解是通过匹配数据类型自动装配Bean的。<br>
-        
-          <a class="article-more-a" href="/2017/08/10/Spring_0301_@autowired/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自动装配</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/10/Spring_0301_@autowired/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring_0300_autowiredd" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/08/Spring_0300_autowiredd/">Spring Bean自动装配</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/08/Spring_0300_autowiredd/" class="archive-article-date">
-  	<time datetime="2017-08-08T15:39:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Spring-Bean自动装配"><a href="#Spring-Bean自动装配" class="headerlink" title="Spring Bean自动装配"></a>Spring Bean自动装配</h3><p>&emsp;&emsp;在Spring框架，可以用 auto-wiring 功能会自动装配Bean。要启用它，只需要在 <bean>定义“autowire”属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;bean id=&quot;customer&quot; class=&quot;com.lidolid.common.Customer&quot; autowire=&quot;byName&quot; /&gt;</div></pre></td></tr></table></figure></bean></p>
-<p>&emsp;&emsp;在Spring中，支持 5 自动装配模式。</p>
-<ul>
-<li>no – 缺省情况下，自动配置是通过”ref”属性手动设定</li>
-<li>byName – 根据属性名称自动装配。如果一个bean的名称和其他bean属性的名称是一样的，将会自装配它。</li>
-<li>byType – 按数据类型自动装配。如果一个bean的数据类型是用其它bean属性的数据类型，兼容并自动装配它。</li>
-<li>constructor – 在构造函数参数的byType方式。</li>
-<li>autodetect – 如果找到默认的构造函数，使用”自动装配用构造”; 否则，使用”按类型自动装配”。</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/08/08/Spring_0300_autowiredd/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自动装配</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/08/Spring_0300_autowiredd/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring_0201_JdbcTemplate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/07/Spring_0201_JdbcTemplate/">Spring使用JdbcTemplate实现查询和修改</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/07/Spring_0201_JdbcTemplate/" class="archive-article-date">
-  	<time datetime="2017-08-07T05:20:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Spring使用JdbcTemplate实现查询和修改"><a href="#Spring使用JdbcTemplate实现查询和修改" class="headerlink" title="Spring使用JdbcTemplate实现查询和修改"></a>Spring使用JdbcTemplate实现查询和修改</h3><p>&emsp;&emsp;在Spring JDBC开发中，可以使用 JdbcTemplate 和 JdbcDaoSupport 类来简化整个数据库的操作过程。本文介绍一下使用JdbcTemplate的用法。<br>
-        
-          <a class="article-more-a" href="/2017/08/07/Spring_0201_JdbcTemplate/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JdbcTemplate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/07/Spring_0201_JdbcTemplate/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring_0200_JDBC_Exp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/06/Spring_0200_JDBC_Exp/">Spring JDBC</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/06/Spring_0200_JDBC_Exp/" class="archive-article-date">
-  	<time datetime="2017-08-06T15:44:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Spring-JDBC"><a href="#Spring-JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h3><p>&emsp;&emsp;Spring对JDBC做了相关支持，本实现演示通过Spring连接并操纵Mysql数据库。<br>
-        
-          <a class="article-more-a" href="/2017/08/06/Spring_0200_JDBC_Exp/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/06/Spring_0200_JDBC_Exp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring_0101_loosecouple" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/05/Spring_0101_loosecouple/">Spring松耦合</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/05/Spring_0101_loosecouple/" class="archive-article-date">
-  	<time datetime="2017-08-05T15:51:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Spring松耦合"><a href="#Spring松耦合" class="headerlink" title="Spring松耦合"></a>Spring松耦合</h3><p>&emsp;&emsp;面向对象的概念，是一个很好的设计来打破系统进入一个组可重用的对象。然而，当系统变大，尤其是在Java项目，庞大的对象依赖关系将一直紧密耦合引起对象难以管理或修改。在这种情况下，可以使用Spring框架作为一个核心模块轻松高效地管理所有的对象依赖。<br>
-        
-          <a class="article-more-a" href="/2017/08/05/Spring_0101_loosecouple/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">松耦合</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/05/Spring_0101_loosecouple/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring_0100_HelloWorld" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/05/Spring_0100_HelloWorld/">Spring示例Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/05/Spring_0100_HelloWorld/" class="archive-article-date">
-  	<time datetime="2017-08-05T14:04:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Spring示例Hello-World"><a href="#Spring示例Hello-World" class="headerlink" title="Spring示例Hello World"></a>Spring示例Hello World</h3><p>&emsp;&emsp;Spring框架，是一个非常强大的反转控制(IOC)框架，以帮助分离项目组件之间的依赖关系。反转控制(IOC)就是传统通过程序控制的对象装配改由spring容器来控制。下面通过Hello World示例，来简单展示一下Spring的基础配置及反转控制的含义。<br>&emsp;&emsp;前一段时间学习使用了Maven这个项目管理工具，感觉可以更好的帮助理解Spring各版本的差异、更方便的管理工程，所以之后Spring相关的工程，都会使用Maven创建。<br>
-        
-          <a class="article-more-a" href="/2017/08/05/Spring_0100_HelloWorld/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">配置</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/05/Spring_0100_HelloWorld/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hibernate_hql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/05/Hibernate_hql/">Hibernate查询之HQL</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/05/Hibernate_hql/" class="archive-article-date">
-  	<time datetime="2017-08-05T14:04:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&emsp;&emsp;展示HQL的简单用法<br>
-        
-          <a class="article-more-a" href="/2017/08/05/Hibernate_hql/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/05/Hibernate_hql/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hibernate_tree_mapping" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/05/Hibernate_tree_mapping/">Hibernate树状映射</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/05/Hibernate_tree_mapping/" class="archive-article-date">
-  	<time datetime="2017-08-04T16:11:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Hibernate树状映射"><a href="#Hibernate树状映射" class="headerlink" title="Hibernate树状映射"></a>Hibernate树状映射</h3><p>&emsp;&emsp;在系统中，经常会用到无限级递归的树形结构，比如菜单、组织机构管理、多级分类等等，一般是在同一个表中定义父子关系实现这种树形结构，本文主要讲述如何运用hibernate全注解的方式实现这个功能。<br>
-        
-          <a class="article-more-a" href="/2017/08/05/Hibernate_tree_mapping/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">树状映射</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/05/Hibernate_tree_mapping/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hibernate_extends_mapping" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/04/Hibernate_extends_mapping/">Hibernate继承映射</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/04/Hibernate_extends_mapping/" class="archive-article-date">
-  	<time datetime="2017-08-04T14:23:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Hibernate继承映射"><a href="#Hibernate继承映射" class="headerlink" title="Hibernate继承映射"></a>Hibernate继承映射</h3><p>&emsp;&emsp;在面向对象开发中，类与类之间是可以相互继承的（单向继承），而Hibernate中也对这种继承关系提供了自己风格的封装，这就是我们接下来要介绍的Hibernate继承映射的三种策略：</p>
-<ul>
-<li>SingleTable：每棵类继承树一张表，表内有所有字段</li>
-<li>TablePerClass：每个子类一张表，每张表都有自己所有的属性字段</li>
-<li>Joined：父类、子类、子类各一张表，父表中有公共字段，子表中有个性字段+外键约束
-        
-          <a class="article-more-a" href="/2017/08/04/Hibernate_extends_mapping/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CRUD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/04/Hibernate_extends_mapping/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+  <div id="SOHUCS" sid="Spring_0400_javaconfig1" ></div> 
+<script type="text/javascript">
+	var_config={
+	skin: 'black'
+	}
+</script>
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cyt6NISOy"; 
+var conf = "6b621df5cee079320c3596fb8154a44e"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+  
+
   
 
 
@@ -993,8 +365,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
