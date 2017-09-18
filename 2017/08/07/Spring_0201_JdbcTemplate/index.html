@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hal的博客</title>
+  <title>Spring使用JdbcTemplate实现查询和修改 | Hal的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: Spring使用JdbcTemplate实现查询和修改date: 2017-08-07 13:20:51tags:">
+  <meta name="description" content="Spring使用JdbcTemplate实现查询和修改&amp;emsp;&amp;emsp;在Spring JDBC开发中，可以使用 JdbcTemplate 和 JdbcDaoSupport 类来简化整个数据库的操作过程。本文介绍一下使用JdbcTemplate的用法。">
+<meta name="keywords" content="Spring,JdbcTemplate">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hal的博客">
-<meta property="og:url" content="http://yoursite.com/2017/09/18/Spring_0201_JdbcTemplate/index.html">
+<meta property="og:title" content="Spring使用JdbcTemplate实现查询和修改">
+<meta property="og:url" content="http://yoursite.com/2017/08/07/Spring_0201_JdbcTemplate/index.html">
 <meta property="og:site_name" content="Hal的博客">
-<meta property="og:description" content="title: Spring使用JdbcTemplate实现查询和修改date: 2017-08-07 13:20:51tags:">
+<meta property="og:description" content="Spring使用JdbcTemplate实现查询和修改&amp;emsp;&amp;emsp;在Spring JDBC开发中，可以使用 JdbcTemplate 和 JdbcDaoSupport 类来简化整个数据库的操作过程。本文介绍一下使用JdbcTemplate的用法。">
 <meta property="og:image" content="https://i.imgur.com/E6SlzyM.png">
-<meta property="og:updated_time" content="2017-09-18T01:33:24.993Z">
+<meta property="og:updated_time" content="2017-09-18T04:26:23.055Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hal的博客">
-<meta name="twitter:description" content="title: Spring使用JdbcTemplate实现查询和修改date: 2017-08-07 13:20:51tags:">
+<meta name="twitter:title" content="Spring使用JdbcTemplate实现查询和修改">
+<meta name="twitter:description" content="Spring使用JdbcTemplate实现查询和修改&amp;emsp;&amp;emsp;在Spring JDBC开发中，可以使用 JdbcTemplate 和 JdbcDaoSupport 类来简化整个数据库的操作过程。本文介绍一下使用JdbcTemplate的用法。">
 <meta name="twitter:image" content="https://i.imgur.com/E6SlzyM.png">
   
     <link rel="alternative" href="/atom.xml" title="Hal的博客" type="application/atom+xml">
@@ -164,16 +165,24 @@
             <article id="post-Spring_0201_JdbcTemplate" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Spring使用JdbcTemplate实现查询和修改
+    </h1>
+  
+
+        
+        <a href="/2017/08/07/Spring_0201_JdbcTemplate/" class="archive-article-date">
+  	<time datetime="2017-08-07T05:20:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: Spring使用JdbcTemplate实现查询和修改<br>date: 2017-08-07 13:20:51<br>tags:                                                                                                                                                                                                                                                   </p>
-<ul>
-<li>Spring                                                                                                                                                                                                                                                </li>
-<li>JdbcTemplate                                                                                                                                                                                                                                               </li>
-</ul>
-<hr>
-<h3 id="Spring使用JdbcTemplate实现查询和修改"><a href="#Spring使用JdbcTemplate实现查询和修改" class="headerlink" title="Spring使用JdbcTemplate实现查询和修改"></a>Spring使用JdbcTemplate实现查询和修改</h3><p>&emsp;&emsp;在Spring JDBC开发中，可以使用 JdbcTemplate 和 JdbcDaoSupport 类来简化整个数据库的操作过程。本文介绍一下使用JdbcTemplate的用法。<br><a id="more"></a></p>
+        <h3 id="Spring使用JdbcTemplate实现查询和修改"><a href="#Spring使用JdbcTemplate实现查询和修改" class="headerlink" title="Spring使用JdbcTemplate实现查询和修改"></a>Spring使用JdbcTemplate实现查询和修改</h3><p>&emsp;&emsp;在Spring JDBC开发中，可以使用 JdbcTemplate 和 JdbcDaoSupport 类来简化整个数据库的操作过程。本文介绍一下使用JdbcTemplate的用法。<br><a id="more"></a></p>
 <h4 id="1-实验环境"><a href="#1-实验环境" class="headerlink" title="1. 实验环境"></a>1. 实验环境</h4><ul>
 <li>Spring 4.3.10</li>
 <li>Spring-jdbc    4.3.10</li>
@@ -199,6 +208,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JdbcTemplate</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -249,7 +273,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/18/Spring_0201_JdbcTemplate/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/07/Spring_0201_JdbcTemplate/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -263,9 +287,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/09/16/Spring_0200_JDBC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
-    <a href="/2017/09/16/Spring_0200_JDBC/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+  
+    <a href="/2017/08/05/Spring_0101_loosecouple/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring松耦合</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -462,6 +495,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">松耦合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JdbcTemplate</a>
               </li>
             
             <div class="clearfix"></div>
