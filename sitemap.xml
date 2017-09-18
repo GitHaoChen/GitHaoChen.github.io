@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/09/18/Spring_0201_JdbcTemplate/</loc>
+    
+    <lastmod>2017-09-18T01:33:24.993Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/09/16/Spring_0200_JDBC/</loc>
+    
+    <lastmod>2017-09-16T11:42:50.283Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/08/05/Spring_0100_HelloWorld/</loc>
     
     <lastmod>2017-09-15T11:57:47.878Z</lastmod>
