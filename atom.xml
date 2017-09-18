@@ -59,8 +59,8 @@
     <title>Spring JDBC</title>
     <link href="http://yoursite.com/2017/08/07/Spring_0200_JDBC/"/>
     <id>http://yoursite.com/2017/08/07/Spring_0200_JDBC/</id>
-    <published>2017-08-06T16:14:01.000Z</published>
-    <updated>2017-09-18T04:38:40.253Z</updated>
+    <published>2017-08-06T16:11:36.000Z</published>
+    <updated>2017-09-18T04:49:34.506Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Spring-JDBC"><a href="#Spring-JDBC" class="headerlink" title="Spring+JDBC"></a>Spring+JDBC</h3><p>&emsp;&emsp;Spring对JDBC做了相关支持，本实现演示通过Spring连接并操纵Mysql数据库。<br><a id="more"></a></p>
 <h4 id="1-实验环境"><a href="#1-实验环境" class="headerlink" title="1. 实验环境"></a>1. 实验环境</h4><ul>
@@ -91,7 +91,7 @@
     
       <category term="Spring" scheme="http://yoursite.com/tags/Spring/"/>
     
-      <category term="JDBC" scheme="http://yoursite.com/tags/JDBC/"/>
+      <category term="Jdbc" scheme="http://yoursite.com/tags/Jdbc/"/>
     
   </entry>
   
