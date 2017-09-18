@@ -60,9 +60,9 @@
     <link href="http://yoursite.com/2017/08/06/Spring_0200_JDBC_Exp/"/>
     <id>http://yoursite.com/2017/08/06/Spring_0200_JDBC_Exp/</id>
     <published>2017-08-06T15:44:09.000Z</published>
-    <updated>2017-09-18T05:07:05.046Z</updated>
+    <updated>2017-09-18T05:11:00.300Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="Spring-JDBC"><a href="#Spring-JDBC" class="headerlink" title="Spring+JDBC"></a>Spring+JDBC</h3><p>&emsp;&emsp;Spring对JDBC做了相关支持，本实现演示通过Spring连接并操纵Mysql数据库。<br><a id="more"></a></p>
+    <content type="html"><![CDATA[<h3 id="Spring-JDBC"><a href="#Spring-JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h3><p>&emsp;&emsp;Spring对JDBC做了相关支持，本实现演示通过Spring连接并操纵Mysql数据库。<br><a id="more"></a></p>
 <h4 id="1-实验环境"><a href="#1-实验环境" class="headerlink" title="1. 实验环境"></a>1. 实验环境</h4><ul>
 <li>Spring 4.3.10</li>
 <li>Spring-jdbc    4.3.10</li>
@@ -84,7 +84,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;Spring-JDBC&quot;&gt;&lt;a href=&quot;#Spring-JDBC&quot; class=&quot;headerlink&quot; title=&quot;Spring+JDBC&quot;&gt;&lt;/a&gt;Spring+JDBC&lt;/h3&gt;&lt;p&gt;&amp;emsp;&amp;emsp;Spring对JDBC做了相关支持，本实现演示通过Spring连接并操纵Mysql数据库。&lt;br&gt;
+      &lt;h3 id=&quot;Spring-JDBC&quot;&gt;&lt;a href=&quot;#Spring-JDBC&quot; class=&quot;headerlink&quot; title=&quot;Spring JDBC&quot;&gt;&lt;/a&gt;Spring JDBC&lt;/h3&gt;&lt;p&gt;&amp;emsp;&amp;emsp;Spring对JDBC做了相关支持，本实现演示通过Spring连接并操纵Mysql数据库。&lt;br&gt;
     
     </summary>
     
