@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/08/10/Spring_0400_javaconfig/</loc>
+    
+    <lastmod>2017-09-18T15:26:15.466Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/08/08/Spring_0300_autowiredd/</loc>
     
     <lastmod>2017-09-18T07:50:27.151Z</lastmod>
