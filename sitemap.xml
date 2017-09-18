@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/08/05/Spring_0101_loosecouple/</loc>
+    
+    <lastmod>2017-09-18T04:21:45.013Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/09/18/Spring_0201_JdbcTemplate/</loc>
     
     <lastmod>2017-09-18T01:33:24.993Z</lastmod>

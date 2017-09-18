@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>about | Hal的博客</title>
+  <title>Spring松耦合 | Hal的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+  <meta name="description" content="Spring松耦合&amp;emsp;&amp;emsp;面向对象的概念，是一个很好的设计来打破系统进入一个组可重用的对象。然而，当系统变大，尤其是在Java项目，庞大的对象依赖关系将一直紧密耦合引起对象难以管理或修改。在这种情况下，可以使用Spring框架作为一个核心模块轻松高效地管理所有的对象依赖。">
+<meta name="keywords" content="Spring,松耦合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring松耦合">
+<meta property="og:url" content="http://yoursite.com/2017/08/05/Spring_0101_loosecouple/index.html">
 <meta property="og:site_name" content="Hal的博客">
-<meta property="og:updated_time" content="2017-07-24T15:36:16.949Z">
+<meta property="og:description" content="Spring松耦合&amp;emsp;&amp;emsp;面向对象的概念，是一个很好的设计来打破系统进入一个组可重用的对象。然而，当系统变大，尤其是在Java项目，庞大的对象依赖关系将一直紧密耦合引起对象难以管理或修改。在这种情况下，可以使用Spring框架作为一个核心模块轻松高效地管理所有的对象依赖。">
+<meta property="og:updated_time" content="2017-09-18T04:21:45.013Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
+<meta name="twitter:title" content="Spring松耦合">
+<meta name="twitter:description" content="Spring松耦合&amp;emsp;&amp;emsp;面向对象的概念，是一个很好的设计来打破系统进入一个组可重用的对象。然而，当系统变大，尤其是在Java项目，庞大的对象依赖关系将一直紧密耦合引起对象难以管理或修改。在这种情况下，可以使用Spring框架作为一个核心模块轻松高效地管理所有的对象依赖。">
   
     <link rel="alternative" href="/atom.xml" title="Hal的博客" type="application/atom+xml">
   
@@ -156,27 +160,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-Spring_0101_loosecouple" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      about
+      Spring松耦合
     </h1>
   
 
         
-        <a href="/about/index.html" class="archive-article-date">
-  	<time datetime="2017-07-24T15:36:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-24</time>
+        <a href="/2017/08/05/Spring_0101_loosecouple/" class="archive-article-date">
+  	<time datetime="2017-08-05T15:51:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="Spring松耦合"><a href="#Spring松耦合" class="headerlink" title="Spring松耦合"></a>Spring松耦合</h3><p>&emsp;&emsp;面向对象的概念，是一个很好的设计来打破系统进入一个组可重用的对象。然而，当系统变大，尤其是在Java项目，庞大的对象依赖关系将一直紧密耦合引起对象难以管理或修改。在这种情况下，可以使用Spring框架作为一个核心模块轻松高效地管理所有的对象依赖。<br><a id="more"></a></p>
+<h4 id="输出生成器例子"><a href="#输出生成器例子" class="headerlink" title="输出生成器例子"></a>输出生成器例子</h4><p>&emsp;&emsp;假设你的项目有一个函数输出的内容，以CSV或JSON格式。代码可能看起来像下面的例子：<br>&emsp;&emsp;File:IOutputGenerator.java – 输出生成器接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.output;                                                                                                                                                                                                                              </div><div class="line">                                                                                                                                                                                                                                                        </div><div class="line">public interface IOutputGenerator                                                                                                                                                                                                                       </div><div class="line">&#123;                                                                                                                                                                                                                                                       </div><div class="line">	public void generateOutput();                                                                                                                                                                                                                       </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;File:CsvOutputGenerator.java – 一个CSV输出生成器用来实现IOutputGenerator接口。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.output.impl;</div><div class="line"></div><div class="line">import com.lidolid.output.IOutputGenerator;</div><div class="line"></div><div class="line">public class CsvOutputGenerator implements IOutputGenerator</div><div class="line">&#123;</div><div class="line">	public void generateOutput()&#123;</div><div class="line">		System.out.println(&quot;Csv Output Generator&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;File:JsonOutputGenerator.java – 一个JSON输出生成器用来实现IOutputGenerator接口。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.output.impl;</div><div class="line"></div><div class="line">import com.lidolid.output.IOutputGenerator;</div><div class="line"></div><div class="line">public class JsonOutputGenerator implements IOutputGenerator</div><div class="line">&#123;</div><div class="line">	public void generateOutput()&#123;</div><div class="line">		System.out.println(&quot;Json Output Generator&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;有如下几个方法来调用IOutputGenerator: </p>
+<h5 id="1-直接调用"><a href="#1-直接调用" class="headerlink" title="1. 直接调用"></a>1. 直接调用</h5><p>&emsp;&emsp;正常的方式，直接调用它。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.common;                                                                                                                                                                                                                              </div><div class="line">                                                                                                                                                                                                                                                        </div><div class="line">import com.lidolid.output.IOutputGenerator;                                                                                                                                                                                                              </div><div class="line">import com.lidolid.output.impl.CsvOutputGenerator;                                                                                                                                                                                                       </div><div class="line">                                                                                                                                                                                                                                                        </div><div class="line">public class App                                                                                                                                                                                                                                        </div><div class="line">&#123;                                                                                                                                                                                                                                                       </div><div class="line">    public static void main( String[] args )                                                                                                                                                                                                            </div><div class="line">    &#123;                                                                                                                                                                                                                                                   </div><div class="line">    	IOutputGenerator output = new CsvOutputGenerator();                                                                                                                                                                                             </div><div class="line">    	output.generateOutput();                                                                                                                                                                                                                        </div><div class="line">    &#125;                                                                                                                                                                                                                                                   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>存在问题:以这种方式，这个问题是“output”紧密到CsvOutputGenerator耦合，输出生成的每一个变化可能涉及代码变化。如果此代码分散在你的项目中，输出生成的每一次变化都会让你受苦。</p>
+</blockquote>
+<h5 id="2-用辅助类调用它"><a href="#2-用辅助类调用它" class="headerlink" title="2. 用辅助类调用它"></a>2. 用辅助类调用它</h5><p>&emsp;&emsp;创建一个辅助类将所有输出实现在类的内部。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.output;                                                                                                                                                                                                                              </div><div class="line">                                                                                                                                                                                                                                                        </div><div class="line">import com.lidolid.output.IOutputGenerator;                                                                                                                                                                                                              </div><div class="line">import com.lidolid.output.impl.CsvOutputGenerator;                                                                                                                                                                                                       </div><div class="line">                                                                                                                                                                                                                                                        </div><div class="line">public class OutputHelper                                                                                                                                                                                                                               </div><div class="line">&#123;                                                                                                                                                                                                                                                       </div><div class="line">	IOutputGenerator outputGenerator;                                                                                                                                                                                                                   </div><div class="line">	                                                                                                                                                                                                                                                    </div><div class="line">	public OutputHelper()&#123;                                                                                                                                                                                                                              </div><div class="line">		outputGenerator = new CsvOutputGenerator();                                                                                                                                                                                                     </div><div class="line">	&#125;                                                                                                                                                                                                                                                   </div><div class="line">	                                                                                                                                                                                                                                                    </div><div class="line">	public void generateOutput()&#123;                                                                                                                                                                                                                       </div><div class="line">		outputGenerator.generateOutput();                                                                                                                                                                                                               </div><div class="line">	&#125;                                                                                                                                                                                                                                                   </div><div class="line">	                                                                                                                                                                                                                                                    </div><div class="line">&#125;                                                                                                                                                                                                                                                       </div><div class="line">                                                                                                                                                                                                                                                        </div><div class="line">//通过辅助类调用                                                                                                                                                                                                                                        </div><div class="line">package com.lidolid.common;                                                                                                                                                                                                                              </div><div class="line">                                                                                                                                                                                                                                                        </div><div class="line">import com.lidolid.output.OutputHelper;                                                                                                                                                                                                                  </div><div class="line">                                                                                                                                                                                                                                                        </div><div class="line">public class App                                                                                                                                                                                                                                        </div><div class="line">&#123;                                                                                                                                                                                                                                                       </div><div class="line">    public static void main( String[] args )                                                                                                                                                                                                            </div><div class="line">    &#123;                                                                                                                                                                                                                                                   </div><div class="line">    	OutputHelper output = new OutputHelper();                                                                                                                                                                                                       </div><div class="line">    	output.generateOutput();                                                                                                                                                                                                                        </div><div class="line">    &#125;                                                                                                                                                                                                                                                   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>存在问题:这看起来比之前的更优雅，只需要管理一个辅助类，但是辅助类仍是紧耦合 CsvOutputGenerator，输出生成的每一个变化仍然涉及小的代码更改。</p>
+</blockquote>
+<h5 id="3-Spring"><a href="#3-Spring" class="headerlink" title="3.  Spring"></a>3.  Spring</h5><p>&emsp;&emsp;Spring 可以让输出生成松散的耦合到输出发生器。OutputHelper类更小的修改。<br>&emsp;&emsp;创建一个 Spring bean 的配置文件，并在这里声明所有的Java对象的依赖。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;!-- Spring-Common.xml --&gt;                                                                                                                                                                                                                              </div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;                                                                                                                                                                                              </div><div class="line">xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;                                                                                                                                                                                                   </div><div class="line">xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans                                                                                                                                                                                         </div><div class="line">http://www.springframework.org/schema/beans/spring-beans-2.5.xsd&quot;&gt;                                                                                                                                                                                      </div><div class="line">                                                                                                                                                                                                                                                        </div><div class="line">	&lt;bean id=&quot;OutputHelper&quot; class=&quot;com.lidolid.output.OutputHelper&quot;&gt;                                                                                                                                                                                     </div><div class="line">		&lt;property name=&quot;outputGenerator&quot; ref=&quot;CsvOutputGenerator&quot; /&gt;                                                                                                                                                                                    </div><div class="line">	&lt;/bean&gt;                                                                                                                                                                                                                                             </div><div class="line">	                                                                                                                                                                                                                                                    </div><div class="line">	&lt;bean id=&quot;CsvOutputGenerator&quot; class=&quot;com.lidolid.output.impl.CsvOutputGenerator&quot; /&gt;                                                                                                                                                                  </div><div class="line">	&lt;bean id=&quot;JsonOutputGenerator&quot; class=&quot;com.lidolid.output.impl.JsonOutputGenerator&quot; /&gt;                                                                                                                                                           </div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;通过Spring来调用它 </p>
+<pre><code>package com.lidolid.common;                                                                                                                                                                                                                              
+
+import org.springframework.context.ApplicationContext;                                                                                                                                                                                                  
+import org.springframework.context.support.ClassPathXmlApplicationContext;                                                                                                                                                                              
+
+import com.lidolid.output.OutputHelper;                                                                                                                                                                                                                  
+
+public class App                                                                                                                                                                                                                                        
+{                                                                                                                                                                                                                                                       
+    public static void main( String[] args )                                                                                                                                                                                                            
+    {                                                                                                                                                                                                                                                   
+        ApplicationContext context =                                                                                                                                                                                                                    
+           new ClassPathXmlApplicationContext(new String[] {&quot;Spring-Common.xml&quot;});                                                                                                                                                                      
+
+        OutputHelper output = (OutputHelper)context.getBean(&quot;OutputHelper&quot;);                                                                                                                                                                            
+        output.generateOutput();                                                                                                                                                                                                                        
+
+    }                                                                                                                                                                                                                                                   
+}
+</code></pre><blockquote>
+<p>现在，只需要改变 Spring XML 文件使用不同的输出生成器。只修改 Spring XML 文件而不需要无码修改，这意味着更少的错误。</p>
+</blockquote>
+<h4 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h4><p>&emsp;&emsp;有了Spring框架 - 这种依赖注入(DI)为对象的依赖关系管理有用的特性，使大型Java项目开发管理中更优雅的，高度灵活和便于维护。</p>
+
       
 
       
@@ -184,6 +232,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">松耦合</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -234,7 +297,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/about/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/05/Spring_0101_loosecouple/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -246,6 +309,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2017/09/16/Spring_0200_JDBC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/05/Spring_0100_HelloWorld/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring示例Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -270,7 +352,7 @@
   
 
   
-  <div id="SOHUCS" sid="undefined" ></div> 
+  <div id="SOHUCS" sid="Spring_0101_loosecouple" ></div> 
 <script type="text/javascript">
 	var_config={
 	skin: 'black'
@@ -310,7 +392,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
