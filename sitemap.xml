@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/08/17/Spring_0700_component/</loc>
+    
+    <lastmod>2017-09-19T06:21:15.798Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/16/Spring_0600_EL/</loc>
+    
+    <lastmod>2017-09-19T05:06:59.420Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/10/Spring_0400_javaconfig/</loc>
+    
+    <lastmod>2017-09-19T04:44:10.154Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/15/Spring_0507_extendsbean/</loc>
+    
+    <lastmod>2017-09-19T04:23:41.479Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/08/14/Spring_0506_PropertyPlaceholderConfigurer/</loc>
     
     <lastmod>2017-09-19T03:21:08.969Z</lastmod>
@@ -47,13 +75,6 @@
     <loc>http://yoursite.com/2017/08/11/Spring_0500_javabean/</loc>
     
     <lastmod>2017-09-19T01:21:39.631Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/08/10/Spring_0400_javaconfig/</loc>
-    
-    <lastmod>2017-09-19T01:17:53.302Z</lastmod>
     
   </url>
   
