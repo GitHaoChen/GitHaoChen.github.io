@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/08/14/Spring_0506_PropertyPlaceholderConfigurer/</loc>
+    
+    <lastmod>2017-09-19T03:21:08.969Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/13/Spring_0505_dateinjection/</loc>
+    
+    <lastmod>2017-09-19T03:05:16.331Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/13/Spring_0504_factorybean/</loc>
+    
+    <lastmod>2017-09-19T02:47:40.622Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/12/Spring_0503_collection/</loc>
+    
+    <lastmod>2017-09-19T02:34:42.703Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/12/Spring_0502_beanscope/</loc>
+    
+    <lastmod>2017-09-19T02:10:58.383Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/08/12/Spring_0501_innerbean/</loc>
     
     <lastmod>2017-09-19T01:45:10.513Z</lastmod>
