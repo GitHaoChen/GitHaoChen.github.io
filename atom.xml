@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-19T01:44:09.157Z</updated>
+  <updated>2017-09-19T01:45:10.513Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/08/12/Spring_0501_innerbean/"/>
     <id>http://yoursite.com/2017/08/12/Spring_0501_innerbean/</id>
     <published>2017-08-12T05:36:27.000Z</published>
-    <updated>2017-09-19T01:44:09.157Z</updated>
+    <updated>2017-09-19T01:45:10.513Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Spring内部bean"><a href="#Spring内部bean" class="headerlink" title="Spring内部bean"></a>Spring内部bean</h3><p>&emsp;&emsp;在Spring框架中，一个bean仅用于一个特定的属性，建议声明为一个内部bean。内部bean支持setter注入”property”和构造器注入”constructor-arg”。<br><a id="more"></a></p>
 <h4 id="1-Spring不使用内部bean注入"><a href="#1-Spring不使用内部bean注入" class="headerlink" title="1. Spring不使用内部bean注入"></a>1. Spring不使用内部bean注入</h4><p>&emsp;&emsp;使用”ref”属性来引用”Person”bean到”Customer”Bean<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">	xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</div><div class="line">	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd&quot;&gt;</div><div class="line"></div><div class="line">	&lt;bean id=&quot;CustomerBean&quot; class=&quot;com.lidolid.common.Customer&quot;&gt;</div><div class="line">		&lt;property name=&quot;person&quot; ref=&quot;PersonBean&quot; /&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;bean id=&quot;PersonBean&quot; class=&quot;com.lidolid.common.Person&quot;&gt;</div><div class="line">		&lt;property name=&quot;name&quot; value=&quot;lidolid&quot; /&gt;</div><div class="line">		&lt;property name=&quot;address&quot; value=&quot;address1&quot; /&gt;</div><div class="line">		&lt;property name=&quot;age&quot; value=&quot;18&quot; /&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">	</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
@@ -37,8 +37,6 @@
       <category term="Spring" scheme="http://yoursite.com/tags/Spring/"/>
     
       <category term="bean" scheme="http://yoursite.com/tags/bean/"/>
-    
-      <category term="作用域" scheme="http://yoursite.com/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
     
   </entry>
   
