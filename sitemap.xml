@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/08/21/Spring_0901_Hibernateproblems/</loc>
+    
+    <lastmod>2017-09-19T17:05:32.570Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/20/Spring_0900_Hibernate/</loc>
+    
+    <lastmod>2017-09-19T16:31:56.565Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/19/Spring_0802_AutoProxyCreator/</loc>
+    
+    <lastmod>2017-09-19T14:55:04.028Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/19/Spring_0801_pointcut/</loc>
+    
+    <lastmod>2017-09-19T14:27:08.700Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/18/Spring_0800_aop/</loc>
+    
+    <lastmod>2017-09-19T14:14:57.197Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/08/17/Spring_0700_component/</loc>
     
     <lastmod>2017-09-19T06:21:15.798Z</lastmod>
