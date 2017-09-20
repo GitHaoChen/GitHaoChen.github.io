@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hal的博客</title>
+  <title>Spring整合hibernate注解形式 | Hal的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hal的博客">
-<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+  <meta name="description" content="Spring整合hibernate注解形式&amp;emsp;&amp;emsp;在使用hibernate进行实体类映射时，可以使用xml映射或者注解(Annotation)方式，本文简单介绍一下如何使用在spring整合hibernate时使用hibernate注解，通过hibernate实现数据库的增删改查。">
+<meta name="keywords" content="Spring,Hibernate">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring整合hibernate注解形式">
+<meta property="og:url" content="http://yoursite.com/2017/08/22/Spring_0902_HibernateAnnotation/index.html">
 <meta property="og:site_name" content="Hal的博客">
+<meta property="og:description" content="Spring整合hibernate注解形式&amp;emsp;&amp;emsp;在使用hibernate进行实体类映射时，可以使用xml映射或者注解(Annotation)方式，本文简单介绍一下如何使用在spring整合hibernate时使用hibernate注解，通过hibernate实现数据库的增删改查。">
+<meta property="og:image" content="https://i.imgur.com/cZgYxHQ.png">
+<meta property="og:image" content="https://i.imgur.com/jCtOTbt.png">
+<meta property="og:updated_time" content="2017-09-20T02:40:54.435Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hal的博客">
+<meta name="twitter:title" content="Spring整合hibernate注解形式">
+<meta name="twitter:description" content="Spring整合hibernate注解形式&amp;emsp;&amp;emsp;在使用hibernate进行实体类映射时，可以使用xml映射或者注解(Annotation)方式，本文简单介绍一下如何使用在spring整合hibernate时使用hibernate注解，通过hibernate实现数据库的增删改查。">
+<meta name="twitter:image" content="https://i.imgur.com/cZgYxHQ.png">
   
     <link rel="alternative" href="/atom.xml" title="Hal的博客" type="application/atom+xml">
   
@@ -155,377 +163,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Hibernate_one2many_many2one_uni_fk" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Spring_0902_HibernateAnnotation" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/02/Hibernate_one2many_many2one_uni_fk/">Hibernate对象关联之一对多&amp;多对一关联</a>
+    <h1 class="article-title" itemprop="name">
+      Spring整合hibernate注解形式
     </h1>
   
 
         
-        <a href="/2017/08/02/Hibernate_one2many_many2one_uni_fk/" class="archive-article-date">
-  	<time datetime="2017-08-02T03:33:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-02</time>
+        <a href="/2017/08/22/Spring_0902_HibernateAnnotation/" class="archive-article-date">
+  	<time datetime="2017-08-21T16:17:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Hibernate一对多单向外键关联配置"><a href="#Hibernate一对多单向外键关联配置" class="headerlink" title="Hibernate一对多单向外键关联配置"></a>Hibernate一对多单向外键关联配置</h3><ul>
-<li>Annotation单向外键关联配置<ul>
-<li>关联对象处于一方的实体类添加对方对象的Set属性(一对多)</li>
-<li>关联对象属性的get方法上添加注解@OneToMany，@JoinColumn注解用于指明生成表中外键字段的名称</li>
-</ul>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/08/02/Hibernate_one2many_many2one_uni_fk/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">一对多关联</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/02/Hibernate_one2many_many2one_uni_fk/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hibernate_one2one_uni_fk" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/01/Hibernate_one2one_uni_fk/">Hibernate对象关联之一对一关联</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/01/Hibernate_one2one_uni_fk/" class="archive-article-date">
-  	<time datetime="2017-08-01T03:47:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Hibernate单向外键关联配置"><a href="#Hibernate单向外键关联配置" class="headerlink" title="Hibernate单向外键关联配置"></a>Hibernate单向外键关联配置</h3><ul>
-<li>Annotation单向外键关联配置<ul>
-<li>实体类中添加关联对象</li>
-<li>关联对象属性的get方法上添加注解@OneToOne，@JoinColumn注解用于指明生成表中外键字段的名称</li>
-</ul>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/08/01/Hibernate_one2one_uni_fk/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">单向外键关联</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/01/Hibernate_one2one_uni_fk/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hibernate_schemaexport" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/31/Hibernate_schemaexport/">SchemaExport的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/31/Hibernate_schemaexport/" class="archive-article-date">
-  	<time datetime="2017-07-31T03:58:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="SchemaExport的使用"><a href="#SchemaExport的使用" class="headerlink" title="SchemaExport的使用"></a>SchemaExport的使用</h3><p>&emsp;&emsp;Hibernate中SchemaExport可以用来在程序中控制生成的建表语句，跟hibernate.cfg.xml配置文件中如下配置</p>
+        <h3 id="Spring整合hibernate注解形式"><a href="#Spring整合hibernate注解形式" class="headerlink" title="Spring整合hibernate注解形式"></a>Spring整合hibernate注解形式</h3><p>&emsp;&emsp;在使用hibernate进行实体类映射时，可以使用xml映射或者注解(Annotation)方式，本文简单介绍一下如何使用在spring整合hibernate时使用hibernate注解，通过hibernate实现数据库的增删改查。<br><a id="more"></a></p>
+<h4 id="1-工程结构"><a href="#1-工程结构" class="headerlink" title="1. 工程结构"></a>1. 工程结构</h4><p><img src="https://i.imgur.com/cZgYxHQ.png" alt=""></p>
+<h4 id="2-创建表"><a href="#2-创建表" class="headerlink" title="2. 创建表"></a>2. 创建表</h4><p>&emsp;&emsp;在MySQL数据库中创建一张“stock”表。 SQL语句如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE  `stock` (</div><div class="line">  `STOCK_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,</div><div class="line">  `STOCK_CODE` varchar(10) NOT NULL,</div><div class="line">  `STOCK_NAME` varchar(20) NOT NULL,</div><div class="line">  PRIMARY KEY (`STOCK_ID`) USING BTREE,</div><div class="line">  UNIQUE KEY `UNI_STOCK_NAME` (`STOCK_NAME`),</div><div class="line">  UNIQUE KEY `UNI_STOCK_ID` (`STOCK_CODE`) USING BTREE</div><div class="line">) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;</div></pre></td></tr></table></figure></p>
+<h4 id="3-Model-amp-BO-amp-DAO"><a href="#3-Model-amp-BO-amp-DAO" class="headerlink" title="3. Model &amp; BO &amp; DAO"></a>3. Model &amp; BO &amp; DAO</h4><h5 id="3-1-Stock-Model"><a href="#3-1-Stock-Model" class="headerlink" title="3.1 Stock Model"></a>3.1 Stock Model</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.stock.model;</div><div class="line"></div><div class="line">import java.io.Serializable;</div><div class="line"></div><div class="line">import javax.persistence.Column;</div><div class="line">import javax.persistence.Entity;</div><div class="line">import javax.persistence.GeneratedValue;</div><div class="line">import javax.persistence.GenerationType;</div><div class="line">import javax.persistence.Id;</div><div class="line">import javax.persistence.Table;</div><div class="line">import javax.persistence.UniqueConstraint;</div><div class="line"></div><div class="line">@Entity</div><div class="line">@Table(name = &quot;stock&quot;, catalog = &quot;yiibai&quot;, uniqueConstraints = &#123; @UniqueConstraint(columnNames = &quot;STOCK_NAME&quot;),</div><div class="line">		@UniqueConstraint(columnNames = &quot;STOCK_CODE&quot;) &#125;)</div><div class="line">public class Stock implements Serializable &#123;</div><div class="line"></div><div class="line">	private Long stockId;</div><div class="line">	private String stockCode;</div><div class="line">	private String stockName;</div><div class="line"></div><div class="line">	public Stock() &#123;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Id</div><div class="line">	@GeneratedValue(strategy = GenerationType.IDENTITY)</div><div class="line">	@Column(name = &quot;STOCK_ID&quot;, unique = true, nullable = false)</div><div class="line">	public Long getStockId() &#123;</div><div class="line">		return stockId;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setStockId(Long stockId) &#123;</div><div class="line">		this.stockId = stockId;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Column(name = &quot;STOCK_CODE&quot;, unique = true, nullable = false, length = 10)</div><div class="line">	public String getStockCode() &#123;</div><div class="line">		return stockCode;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public void setStockCode(String stockCode) &#123;</div><div class="line">		this.stockCode = stockCode;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Column(name = &quot;STOCK_NAME&quot;, unique = true, nullable = false, length = 20)</div><div class="line">	public String getStockName() &#123;</div><div class="line">		return stockName;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public void setStockName(String stockName) &#123;</div><div class="line">		this.stockName = stockName;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public String toString() &#123;</div><div class="line">		return &quot;Stock [stockCode=&quot; + stockCode + &quot;, stockId=&quot; + stockId + &quot;, stockName=&quot; + stockName + &quot;]&quot;;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="3-2-Stock-Business-Object-BO"><a href="#3-2-Stock-Business-Object-BO" class="headerlink" title="3.2 Stock Business Object (BO)"></a>3.2 Stock Business Object (BO)</h5><p>&emsp;&emsp;Stock 业务对象(BO)接口和实现，它是用来存储项目的业务功能，真正的数据库操作(CRUD)的工作不参与这一个类，而是用一个DAO(StockDao)类来做到这一点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.stock.bo;</div><div class="line"></div><div class="line">import com.lidolid.stock.model.Stock;</div><div class="line"></div><div class="line">public interface StockBo &#123;</div><div class="line">	void save(Stock stock);</div><div class="line">	void update(Stock stock);</div><div class="line">	void delete(Stock stock);</div><div class="line">	Stock findByStockCode(String stockCode);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;使这个类中的 Spring IoC容器的 bean”stockBo”自动装配库存DAO类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.stock.bo.impl;</div><div class="line"></div><div class="line">import org.springframework.beans.factory.annotation.Autowired;</div><div class="line">import org.springframework.stereotype.Service;</div><div class="line"></div><div class="line">import com.lidolid.stock.bo.StockBo;</div><div class="line">import com.lidolid.stock.dao.StockDao;</div><div class="line">import com.lidolid.stock.model.Stock;</div><div class="line"></div><div class="line">@Service(&quot;stockBo&quot;)</div><div class="line">public class StockBoImpl implements StockBo &#123;</div><div class="line"></div><div class="line">	@Autowired</div><div class="line">	StockDao stockDao;</div><div class="line"></div><div class="line">	public void setStockDao(StockDao stockDao) &#123;</div><div class="line">		this.stockDao = stockDao;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void save(Stock stock) &#123;</div><div class="line">		stockDao.save(stock);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void update(Stock stock) &#123;</div><div class="line">		stockDao.update(stock);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void delete(Stock stock) &#123;</div><div class="line">		stockDao.delete(stock);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public Stock findByStockCode(String stockCode) &#123;</div><div class="line">		return stockDao.findByStockCode(stockCode);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="3-3-Stock-Data-Access-Object-DAO"><a href="#3-3-Stock-Data-Access-Object-DAO" class="headerlink" title="3.3 Stock Data Access Object(DAO)"></a>3.3 Stock Data Access Object(DAO)</h5><p>&emsp;&emsp;Stock DAO接口和实现。在xml配置中，DAO类是直接扩展”HibernateDaoSupport”。但注释方式不可能做到这一点，因为<strong><em>没有办法从DAO类会话到工厂bean自动装配</em></strong>。解决方法是创建一个自定义类(CustomHibernateDaoSupport)，并扩展了”HibernateDaoSupport”和自动装配会话工厂，DAO类扩展了这个类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.util;</div><div class="line"></div><div class="line">import org.hibernate.SessionFactory;</div><div class="line">import org.springframework.beans.factory.annotation.Autowired;</div><div class="line">import org.springframework.orm.hibernate5.support.HibernateDaoSupport;</div><div class="line"></div><div class="line">public class CustomHibernateDaoSupport extends HibernateDaoSupport &#123;</div><div class="line"></div><div class="line">	@Autowired</div><div class="line">    public void anyMethodName(SessionFactory sessionFactory)</div><div class="line">    &#123;</div><div class="line">        setSessionFactory(sessionFactory);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.stock.dao;</div><div class="line"></div><div class="line">import com.lidolid.stock.model.Stock;</div><div class="line"></div><div class="line">public interface StockDao &#123;</div><div class="line">	void save(Stock stock);</div><div class="line"></div><div class="line">	void update(Stock stock);</div><div class="line"></div><div class="line">	void delete(Stock stock);</div><div class="line"></div><div class="line">	Stock findByStockCode(String stockCode);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.stock.dao.impl;</div><div class="line"></div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">import org.springframework.stereotype.Repository;</div><div class="line">import org.springframework.transaction.annotation.Propagation;</div><div class="line">import org.springframework.transaction.annotation.Transactional;</div><div class="line"></div><div class="line">import com.lidolid.stock.dao.StockDao;</div><div class="line">import com.lidolid.stock.model.Stock;</div><div class="line">import com.lidolid.util.CustomHibernateDaoSupport;</div><div class="line"></div><div class="line">@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW )</div><div class="line">@Repository(&quot;stockDao&quot;)</div><div class="line">public class StockDaoImpl extends CustomHibernateDaoSupport implements StockDao &#123;</div><div class="line">	public void save(Stock stock) &#123;</div><div class="line">		getHibernateTemplate().save(stock);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void update(Stock stock) &#123;</div><div class="line">		getHibernateTemplate().update(stock);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void delete(Stock stock) &#123;</div><div class="line">		getHibernateTemplate().delete(stock);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public Stock findByStockCode(String stockCode) &#123;</div><div class="line">		List list = getHibernateTemplate().find(&quot;from Stock where stockCode=?&quot;, stockCode);</div><div class="line">		return (Stock) list.get(0);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-资源配置"><a href="#4-资源配置" class="headerlink" title="4. 资源配置"></a>4. 资源配置</h4><h5 id="4-1-Spring-Configuration"><a href="#4-1-Spring-Configuration" class="headerlink" title="4.1 Spring Configuration"></a>4.1 Spring Configuration</h5><p>&emsp;&emsp;创建一个属性文件(database.properties)来存放数据库的详细信息，把它放到properties文件夹中,用于设置dataSource bean。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">jdbc.driverClassName=com.mysql.jdbc.Driver</div><div class="line">jdbc.url=jdbc:mysql://localhost:3306/spring</div><div class="line">jdbc.username=root</div><div class="line">jdbc.password=cupdata</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;为数据库创建一个”dataSource”bean配置文件(DataSource.xml)，并从database.properties导入的属性，把它放入到database文件夹中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">	xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</div><div class="line">http://www.springframework.org/schema/beans/spring-beans-2.5.xsd&quot;&gt;</div><div class="line"></div><div class="line">	&lt;bean</div><div class="line">		class=&quot;org.springframework.beans.factory.config.PropertyPlaceholderConfigurer&quot;&gt;</div><div class="line">		&lt;property name=&quot;location&quot;&gt;</div><div class="line">			&lt;value&gt;properties/database.properties&lt;/value&gt;</div><div class="line">		&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;bean id=&quot;dataSource&quot;</div><div class="line">		class=&quot;org.springframework.jdbc.datasource.DriverManagerDataSource&quot;&gt;</div><div class="line">		&lt;property name=&quot;driverClassName&quot; value=&quot;$&#123;jdbc.driverClassName&#125;&quot; /&gt;</div><div class="line">		&lt;property name=&quot;url&quot; value=&quot;$&#123;jdbc.url&#125;&quot; /&gt;</div><div class="line">		&lt;property name=&quot;username&quot; value=&quot;$&#123;jdbc.username&#125;&quot; /&gt;</div><div class="line">		&lt;property name=&quot;password&quot; value=&quot;$&#123;jdbc.password&#125;&quot; /&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;创建一个会话工厂bean配置文件(Hibernate.xml)，把它放入database文件夹中。这个 LocalSessionFactoryBean中设置一个共享的Hibernate SessionFactory。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">	xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</div><div class="line">http://www.springframework.org/schema/beans/spring-beans-2.5.xsd&quot;&gt;</div><div class="line"></div><div class="line">	&lt;!-- Hibernate session factory --&gt;</div><div class="line">	&lt;bean id=&quot;sessionFactory&quot;</div><div class="line">		class=&quot;org.springframework.orm.hibernate5.LocalSessionFactoryBean&quot;&gt;</div><div class="line"></div><div class="line">		&lt;property name=&quot;dataSource&quot;&gt;</div><div class="line">			&lt;ref bean=&quot;dataSource&quot; /&gt;</div><div class="line">		&lt;/property&gt;</div><div class="line"></div><div class="line">		&lt;property name=&quot;hibernateProperties&quot;&gt;</div><div class="line">			&lt;props&gt;</div><div class="line">				&lt;prop key=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQL5Dialect&lt;/prop&gt;</div><div class="line">				&lt;prop key=&quot;hibernate.show_sql&quot;&gt;true&lt;/prop&gt;</div><div class="line">			&lt;/props&gt;</div><div class="line">		&lt;/property&gt;</div><div class="line"></div><div class="line">		&lt;property name=&quot;annotatedClasses&quot;&gt;</div><div class="line">			&lt;list&gt;</div><div class="line">				&lt;value&gt;com.lidolid.stock.model.Stock&lt;/value&gt;</div><div class="line">			&lt;/list&gt;</div><div class="line">		&lt;/property&gt;</div><div class="line"></div><div class="line">	&lt;/bean&gt;</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;导入所有的 Spring bean 配置文件合并为一个文件(BeanLocations.xml)，把它放到config文件夹,BeanLocations.xml。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</div><div class="line">	xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot; xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;</div><div class="line">	xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot;</div><div class="line">	xsi:schemaLocation=&quot;http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd</div><div class="line">http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd</div><div class="line">http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd</div><div class="line">http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd </div><div class="line">http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd&quot;&gt;</div><div class="line"></div><div class="line">	&lt;bean id=&quot;transactionManager&quot;</div><div class="line">		class=&quot;org.springframework.orm.hibernate5.HibernateTransactionManager&quot;</div><div class="line">		p:sessionFactory-ref=&quot;sessionFactory&quot;&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;!-- xml配置事务 --&gt;</div><div class="line">	&lt;tx:advice id=&quot;txAdviceHibernate&quot; transaction-manager=&quot;transactionManager&quot;&gt;</div><div class="line">		&lt;tx:attributes&gt;</div><div class="line">			&lt;tx:method name=&quot;delete*&quot; propagation=&quot;REQUIRED&quot; /&gt;</div><div class="line">			&lt;tx:method name=&quot;update*&quot; propagation=&quot;REQUIRED&quot; /&gt;</div><div class="line">			&lt;tx:method name=&quot;save*&quot; propagation=&quot;REQUIRED&quot; /&gt;</div><div class="line">			&lt;tx:method name=&quot;*&quot; read-only=&quot;true&quot; /&gt;</div><div class="line">		&lt;/tx:attributes&gt;</div><div class="line">	&lt;/tx:advice&gt;</div><div class="line">	&lt;aop:config&gt;</div><div class="line">		&lt;aop:pointcut id=&quot;serviceMethodsHibnerate&quot;</div><div class="line">			expression=&quot;execution(* com.lidolid.stock.dao..*.*(..))&quot; /&gt;</div><div class="line">		&lt;aop:advisor advice-ref=&quot;txAdviceHibernate&quot; pointcut-ref=&quot;serviceMethodsHibnerate&quot; /&gt;</div><div class="line">	&lt;/aop:config&gt;</div><div class="line">	&lt;!-- xml配置事务 --&gt;</div><div class="line">	</div><div class="line">	&lt;!-- Database Configuration --&gt;</div><div class="line">	&lt;import resource=&quot;../database/DataSource.xml&quot; /&gt;</div><div class="line">	&lt;import resource=&quot;../database/Hibernate.xml&quot; /&gt;</div><div class="line"></div><div class="line">	&lt;!-- Auto scan the components --&gt;</div><div class="line">	&lt;context:component-scan base-package=&quot;com.lidolid.stock&quot; /&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>&lt;property name=”hbm2ddl.auto”&gt;create &lt;/property&gt;</p>
+<p>同样需要设置Spring事务</p>
 </blockquote>
-<p>有着相同的作用。hibernate 5.x的版本中，SchemaExport的用法不同于以前的版本，而网上的诸多资料都还停留在以前的3.x， 4.x的API中，这里我简单说一下5.x版本中SchemaExport的用法。<br>
-        
-          <a class="article-more-a" href="/2017/07/31/Hibernate_schemaexport/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">chemaExport</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/31/Hibernate_schemaexport/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hibernate_states3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/29/Hibernate_states3/">Hibernate对象的三种状态</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/29/Hibernate_states3/" class="archive-article-date">
-  	<time datetime="2017-07-29T15:47:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Hibernate对象的三种状态"><a href="#Hibernate对象的三种状态" class="headerlink" title="Hibernate对象的三种状态"></a>Hibernate对象的三种状态</h3><p>&emsp;&emsp;在Hibernate中，对象有三种状态：临 时状态(Transient)、持久状态(Persistent)和游离状态(Detached)。处于持久态的对象也称为 PO(PersistenceObject),临时对象和游离对象也称为VO(ValueObject)。</p>
-<p><img src="http://i.imgur.com/ejggriH.png" alt=""><br>
-        
-          <a class="article-more-a" href="/2017/07/29/Hibernate_states3/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Session</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">对象状态</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/29/Hibernate_states3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hibernate_session" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/29/Hibernate_session/">openSession()跟getCurrentSession()方法之间的区别</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/29/Hibernate_session/" class="archive-article-date">
-  	<time datetime="2017-07-29T04:43:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="hibernate中openSession-跟getCurrentSession-方法之间的区别"><a href="#hibernate中openSession-跟getCurrentSession-方法之间的区别" class="headerlink" title="hibernate中openSession()跟getCurrentSession()方法之间的区别"></a>hibernate中openSession()跟getCurrentSession()方法之间的区别</h3><p>&emsp;&emsp;openSession()和getCurrentSession()都用来产生session对象，区别如下：</p>
-<ul>
-<li>采用getCurrentSession()创建的Session会绑定到当前的线程中去，而采用OpenSession()则不会。</li>
-<li>采用getCurrentSession()创建的Session在commit或rollback后会自动关闭，采用OpenSession()必须手动关闭。</li>
+<h4 id="5-运行"><a href="#5-运行" class="headerlink" title="5. 运行"></a>5. 运行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">package com.lidolid.common;</div><div class="line"></div><div class="line">import org.springframework.context.ApplicationContext;</div><div class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</div><div class="line"></div><div class="line">import com.lidolid.stock.bo.StockBo;</div><div class="line">import com.lidolid.stock.model.Stock;</div><div class="line"></div><div class="line">public class App &#123;</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		ApplicationContext appContext = new ClassPathXmlApplicationContext(&quot;config/BeanLocations.xml&quot;);</div><div class="line"></div><div class="line">		StockBo stockBo = (StockBo) appContext.getBean(&quot;stockBo&quot;);</div><div class="line"></div><div class="line">		/** insert **/</div><div class="line">		Stock stock = new Stock();</div><div class="line">		stock.setStockCode(&quot;7668&quot;);</div><div class="line">		stock.setStockName(&quot;HAIO&quot;);</div><div class="line">		stockBo.save(stock);</div><div class="line"></div><div class="line">		/** select **/</div><div class="line">		Stock stock2 = stockBo.findByStockCode(&quot;7668&quot;);</div><div class="line">		System.out.println(stock2);</div><div class="line"></div><div class="line">		/** update **/</div><div class="line">		stock2.setStockName(&quot;HAIO-1&quot;);</div><div class="line">		stockBo.update(stock2);</div><div class="line"></div><div class="line">		/** delete **/</div><div class="line">		stockBo.delete(stock2);</div><div class="line"></div><div class="line">		System.out.println(&quot;Done&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果输出：<br><img src="https://i.imgur.com/jCtOTbt.png" alt=""></p>
+<h4 id="6-注意"><a href="#6-注意" class="headerlink" title="6. 注意"></a>6. 注意</h4><ul>
+<li>在使用Annotation注解后，不在需要stock.xml bean定义文件和实体类映射文件Stock.hbm.xml</li>
 </ul>
-        
-          <a class="article-more-a" href="/2017/07/29/Hibernate_session/#more">more >></a>
-        
+
       
 
       
@@ -538,11 +217,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Session</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
         		</li>
       		
 		</ul>
@@ -551,16 +230,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/29/Hibernate_session/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/22/Spring_0902_HibernateAnnotation/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/08/23/Spring_0903_HibernateAop/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Spring AOP管理hibernate事务
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/21/Spring_0901_Hibernateproblems/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring整合hibernate问题汇总</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -580,416 +327,26 @@
 
 
 
-
-  
-    <article id="post-Hibernate_ID" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/28/Hibernate_ID/">ID生成策略</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/28/Hibernate_ID/" class="archive-article-date">
-  	<time datetime="2017-07-27T17:19:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Hibernate中ID生成策略"><a href="#Hibernate中ID生成策略" class="headerlink" title="Hibernate中ID生成策略"></a>Hibernate中ID生成策略</h3><p>&emsp;&emsp;在开发中，数据表经常使用到ID，并以此作为主键。在插入时，ID一般不需要手动指定，可以由数据库自动生成。实际开发中，我们一般都是先建数据表，再由数据表生成实体类，研究Hibernate如何生成ID的意义就是搞清楚应该建立什么样的表与实体类映射。<br>
-        
-          <a class="article-more-a" href="/2017/07/28/Hibernate_ID/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ID</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">联合主键</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/28/Hibernate_ID/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hibernate_cfg1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/27/Hibernate_cfg1/">Hibernate基本配置</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/27/Hibernate_cfg1/" class="archive-article-date">
-  	<time datetime="2017-07-27T14:42:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Hibernate基础配置"><a href="#Hibernate基础配置" class="headerlink" title="Hibernate基础配置"></a>Hibernate基础配置</h3><p>&emsp;&emsp;通过近期的实验，总结一下hibernate的一些基础配置，如下：<br>
-        
-          <a class="article-more-a" href="/2017/07/27/Hibernate_cfg1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">配置</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/27/Hibernate_cfg1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hibernate_er3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/27/Hibernate_er3/">Hibernate错误：Invalid syntax error “type= MyISAM”</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/27/Hibernate_er3/" class="archive-article-date">
-  	<time datetime="2017-07-26T16:43:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Hibernate错误：Invalid-syntax-error-“type-MyISAM”-in-DDL-generated-by-Hibernate，错误信息如下："><a href="#Hibernate错误：Invalid-syntax-error-“type-MyISAM”-in-DDL-generated-by-Hibernate，错误信息如下：" class="headerlink" title="Hibernate错误：Invalid syntax error “type= MyISAM” in DDL generated by Hibernate，错误信息如下："></a>Hibernate错误：Invalid syntax error “type= MyISAM” in DDL generated by Hibernate，错误信息如下：</h3>
-        
-          <a class="article-more-a" href="/2017/07/27/Hibernate_er3/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">错误</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/27/Hibernate_er3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hibernate_er2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/26/Hibernate_er2/">Hibernate错误：Unable to instantiate default tuplizer</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/26/Hibernate_er2/" class="archive-article-date">
-  	<time datetime="2017-07-26T15:53:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Hibernate错误：Unable-to-instantiate-default-tuplizer，控制台错误信息如下："><a href="#Hibernate错误：Unable-to-instantiate-default-tuplizer，控制台错误信息如下：" class="headerlink" title="Hibernate错误：Unable to instantiate default tuplizer，控制台错误信息如下："></a>Hibernate错误：Unable to instantiate default tuplizer，控制台错误信息如下：</h3>
-        
-          <a class="article-more-a" href="/2017/07/26/Hibernate_er2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">错误</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/26/Hibernate_er2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hibernate_er1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/26/Hibernate_er1/">Hibernate错误：Unable to create requested service</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/26/Hibernate_er1/" class="archive-article-date">
-  	<time datetime="2017-07-26T15:45:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Hibernate错误：Unable-to-create-requested-service-org-hibernate-engine-jdbc-env-spi-JdbcEnvironment-，错误信息如下："><a href="#Hibernate错误：Unable-to-create-requested-service-org-hibernate-engine-jdbc-env-spi-JdbcEnvironment-，错误信息如下：" class="headerlink" title="Hibernate错误：Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]，错误信息如下："></a>Hibernate错误：Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]，错误信息如下：</h3>
-        
-          <a class="article-more-a" href="/2017/07/26/Hibernate_er1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">错误</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/26/Hibernate_er1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
-    </nav>
+  
+
+  
+  <div id="SOHUCS" sid="Spring_0902_HibernateAnnotation" ></div> 
+<script type="text/javascript">
+	var_config={
+	skin: 'black'
+	}
+</script>
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cyt6NISOy"; 
+var conf = "6b621df5cee079320c3596fb8154a44e"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+  
+
   
 
 
@@ -1014,8 +371,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

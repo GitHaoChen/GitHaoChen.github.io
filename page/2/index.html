@@ -157,6 +157,167 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Spring_0506_PropertyPlaceholderConfigurer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/14/Spring_0506_PropertyPlaceholderConfigurer/">Spring使用properties文件注入bean属性值 PropertyPlaceholderConfigurer</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/14/Spring_0506_PropertyPlaceholderConfigurer/" class="archive-article-date">
+  	<time datetime="2017-08-14T12:17:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Spring使用properties文件注入bean属性值-PropertyPlaceholderConfigurer"><a href="#Spring使用properties文件注入bean属性值-PropertyPlaceholderConfigurer" class="headerlink" title="Spring使用properties文件注入bean属性值 PropertyPlaceholderConfigurer"></a>Spring使用properties文件注入bean属性值 PropertyPlaceholderConfigurer</h3><p>&emsp;&emsp;很多时候，大多数Spring开发人员只是把整个部署的详细信息(数据库的详细信息，日志文件的路径)写在XML bean配置文件如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">	xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</div><div class="line">	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd&quot;&gt;</div><div class="line"></div><div class="line">	&lt;bean id=&quot;customerDAO&quot; class=&quot;com.lidolid.customer.dao.impl.JdbcCustomerDAO&quot;&gt;</div><div class="line"></div><div class="line">		&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;bean id=&quot;customerSimpleDAO&quot; class=&quot;com.lidolid.customer.dao.impl.SimpleJdbcCustomerDAO&quot;&gt;</div><div class="line"></div><div class="line">		&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;bean id=&quot;dataSource&quot;</div><div class="line">		class=&quot;org.springframework.jdbc.datasource.DriverManagerDataSource&quot;&gt;</div><div class="line"></div><div class="line">		&lt;property name=&quot;driverClassName&quot; value=&quot;com.mysql.jdbc.Driver&quot; /&gt;</div><div class="line">		&lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/lidolidjava&quot; /&gt;</div><div class="line">		&lt;property name=&quot;username&quot; value=&quot;root&quot; /&gt;</div><div class="line">		&lt;property name=&quot;password&quot; value=&quot;password&quot; /&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;但是，在企业环境中，部署的细节通常只可以由系统管理员或数据库管理员来’触碰’，他们可能会拒绝直接访问你的bean的配置文件，它们会要求部署配置一个单独的文件，例如，一个简单的性能(properties)文件，仅具有部署细节。本文展示通过PropertyPlaceholderConfigurer使用properties文件注入值到bean。<br>
+        
+          <a class="article-more-a" href="/2017/08/14/Spring_0506_PropertyPlaceholderConfigurer/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PropertyPlaceholderConfigurer</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/14/Spring_0506_PropertyPlaceholderConfigurer/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Spring_0505_dateinjection" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/13/Spring_0505_dateinjection/">Spring注入日期到bean属性</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/13/Spring_0505_dateinjection/" class="archive-article-date">
+  	<time datetime="2017-08-13T15:13:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Spring注入日期到bean属性"><a href="#Spring注入日期到bean属性" class="headerlink" title="Spring注入日期到bean属性"></a>Spring注入日期到bean属性</h3><p>&emsp;&emsp;本文展示如何为bean属性注入一个”日期”。<br>
+        
+          <a class="article-more-a" href="/2017/08/13/Spring_0505_dateinjection/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Date</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/13/Spring_0505_dateinjection/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Spring_0504_factorybean" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -823,165 +984,9 @@
 
 
   
-    <article id="post-Spring_0201_JdbcTemplate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/07/Spring_0201_JdbcTemplate/">Spring使用JdbcTemplate实现查询和修改</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/07/Spring_0201_JdbcTemplate/" class="archive-article-date">
-  	<time datetime="2017-08-07T05:20:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Spring使用JdbcTemplate实现查询和修改"><a href="#Spring使用JdbcTemplate实现查询和修改" class="headerlink" title="Spring使用JdbcTemplate实现查询和修改"></a>Spring使用JdbcTemplate实现查询和修改</h3><p>&emsp;&emsp;在Spring JDBC开发中，可以使用 JdbcTemplate 和 JdbcDaoSupport 类来简化整个数据库的操作过程。本文介绍一下使用JdbcTemplate的用法。<br>
-        
-          <a class="article-more-a" href="/2017/08/07/Spring_0201_JdbcTemplate/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JdbcTemplate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/07/Spring_0201_JdbcTemplate/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring_0200_JDBC_Exp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/06/Spring_0200_JDBC_Exp/">Spring JDBC</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/06/Spring_0200_JDBC_Exp/" class="archive-article-date">
-  	<time datetime="2017-08-06T15:44:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Spring-JDBC"><a href="#Spring-JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h3><p>&emsp;&emsp;Spring对JDBC做了相关支持，本实现演示通过Spring连接并操纵Mysql数据库。<br>
-        
-          <a class="article-more-a" href="/2017/08/06/Spring_0200_JDBC_Exp/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/06/Spring_0200_JDBC_Exp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 

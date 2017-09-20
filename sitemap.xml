@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/08/23/Spring_0903_HibernateAop/</loc>
+    
+    <lastmod>2017-09-20T04:36:39.626Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/22/Spring_0902_HibernateAnnotation/</loc>
+    
+    <lastmod>2017-09-20T02:40:54.435Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/08/21/Spring_0901_Hibernateproblems/</loc>
     
     <lastmod>2017-09-19T17:05:32.570Z</lastmod>
