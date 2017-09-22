@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/08/28/Mybatis_0301_SpringMVC/</loc>
+    
+    <lastmod>2017-09-22T01:27:23.947Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/29/Mybatis_0302_SpringMVC_problems/</loc>
+    
+    <lastmod>2017-09-21T17:49:26.107Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/28/Mybatis_0300_Spring/</loc>
+    
+    <lastmod>2017-09-21T16:38:28.544Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/08/27/Mybatis_0202_many2many/</loc>
     
     <lastmod>2017-09-20T17:40:12.305Z</lastmod>

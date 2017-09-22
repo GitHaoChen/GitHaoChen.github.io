@@ -157,6 +157,260 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Mybatis_0302_SpringMVC_problems" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/29/Mybatis_0302_SpringMVC_problems/">Spring MVC整合Mybatis问题汇总</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/29/Mybatis_0302_SpringMVC_problems/" class="archive-article-date">
+  	<time datetime="2017-08-29T05:06:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Spring-MVC整合Mybatis问题汇总"><a href="#Spring-MVC整合Mybatis问题汇总" class="headerlink" title="Spring MVC整合Mybatis问题汇总"></a>Spring MVC整合Mybatis问题汇总</h3><p>&emsp;&emsp;在使用Spring MVC整合Mybatis时，我遇到了一些问题，经过查阅相关资料最终得以解决。下面就这些问题，给出相应的解决方案，以供参考。</p>
+<ul>
+<li>fail On Missing web.xml</li>
+<li>java.lang.ClassNotFoundException: org.mybatis.spring.SqlSessionFactoryBean</li>
+<li>Cannot find class [org.apache.commons.dbcp.BasicDataSource]</li>
+<li>Can not find the tag library descriptor for “<a href="http://java.sun.com/jsp/jstl/core" target="_blank" rel="external">http://java.sun.com/jsp/jstl/core</a>“</li>
+<li>Missing artifact javax.servlet.jsp.jstl:jstl:jar:1.2</li>
+<li>Could not load the Tomcat server configuration at \Servers\Tomcat v8.0 Server at localhost-config</li>
+<li>java.lang.ClassNotFoundException:org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory</li>
+<li>org.springframework.beans.factory.BeanDefinitionStoreException</li>
+</ul>
+        
+          <a class="article-more-a" href="/2017/08/29/Mybatis_0302_SpringMVC_problems/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">错误</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spring MVC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/29/Mybatis_0302_SpringMVC_problems/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mybatis_0301_SpringMVC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/28/Mybatis_0301_SpringMVC/">Spring MVC整合Mybatis</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/28/Mybatis_0301_SpringMVC/" class="archive-article-date">
+  	<time datetime="2017-08-28T15:44:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Spring整合Mybatis问题汇总"><a href="#Spring整合Mybatis问题汇总" class="headerlink" title="Spring整合Mybatis问题汇总"></a>Spring整合Mybatis问题汇总</h3><p>&emsp;&emsp;目前主流的Web MVC框架，除了Struts这个主力外，还有Spring MVC，主要是由于 Spring MVC配置比较简单，使用起来也十分明了，非常灵活，与Spring 集成较好，对RESTful API 的支持也比struts要好。所以Spring MVC在一定程度上有一定的优势。<br>&emsp;&emsp;MyBatis是ibatis的升级版，作为hibernate的老对手，它是一个可以自定义SQL、存储过程和高级映射的持久层框架。与Hibernate 的主要区别就是 Mybatis 是半自动化的，而 Hibernate 是全自动的，所以当应用需求越来越复杂的时候，自动化的 SQL 显得比较笨拙。<br>&emsp;&emsp;本文介绍如何使用Spring MVC整合Mybatis。<br>
+        
+          <a class="article-more-a" href="/2017/08/28/Mybatis_0301_SpringMVC/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spring MVC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/28/Mybatis_0301_SpringMVC/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mybatis_0300_Spring" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/28/Mybatis_0300_Spring/">Spring整合Mybatis</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/28/Mybatis_0300_Spring/" class="archive-article-date">
+  	<time datetime="2017-08-28T05:24:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Spring整合Mybatis"><a href="#Spring整合Mybatis" class="headerlink" title="Spring整合Mybatis"></a>Spring整合Mybatis</h3><p>&emsp;&emsp;很多的项目中，通常会用spring这个粘合剂来管理datasource等。充分利用spring基于接口的编程，以及aop,ioc带来的方便。用spring来管理mybatis与管理hibernate有很多类似的地方，本文介绍如何使用Spring整合Mybatis进行数据库的查询操作。<br>
+        
+          <a class="article-more-a" href="/2017/08/28/Mybatis_0300_Spring/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/28/Mybatis_0300_Spring/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Mybatis_0202_many2many" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -730,254 +984,6 @@
 
 
   
-    <article id="post-Spring_0902_HibernateAnnotation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/22/Spring_0902_HibernateAnnotation/">Spring整合hibernate注解形式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/22/Spring_0902_HibernateAnnotation/" class="archive-article-date">
-  	<time datetime="2017-08-21T16:17:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Spring整合hibernate注解形式"><a href="#Spring整合hibernate注解形式" class="headerlink" title="Spring整合hibernate注解形式"></a>Spring整合hibernate注解形式</h3><p>&emsp;&emsp;在使用hibernate进行实体类映射时，可以使用xml映射或者注解(Annotation)方式，本文简单介绍一下如何使用在spring整合hibernate时使用hibernate注解，通过hibernate实现数据库的增删改查。<br>
-        
-          <a class="article-more-a" href="/2017/08/22/Spring_0902_HibernateAnnotation/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/22/Spring_0902_HibernateAnnotation/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring_0901_Hibernateproblems" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/21/Spring_0901_Hibernateproblems/">Spring整合hibernate问题汇总</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/21/Spring_0901_Hibernateproblems/" class="archive-article-date">
-  	<time datetime="2017-08-21T11:37:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Spring整合hibernate问题汇总"><a href="#Spring整合hibernate问题汇总" class="headerlink" title="Spring整合hibernate问题汇总"></a>Spring整合hibernate问题汇总</h3><p>&emsp;&emsp;我在使用Spring整合Hibernate时，出现了一系列的问题。通过查询各种资料最后才得以解决。下面我总结一下我认为比较棘手的问题，供学习参考。</p>
-<ul>
-<li>InvalidDataAccessApiUsageException</li>
-<li>NoClassDefFoundError: org/hibernate/engine/transaction/spi/TransactionContext</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/08/21/Spring_0901_Hibernateproblems/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">错误</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/21/Spring_0901_Hibernateproblems/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring_0900_Hibernate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/20/Spring_0900_Hibernate/">Spring+Hibernate+MySql</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/20/Spring_0900_Hibernate/" class="archive-article-date">
-  	<time datetime="2017-08-20T15:04:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Spring-Hibernate-MySql"><a href="#Spring-Hibernate-MySql" class="headerlink" title="Spring+Hibernate+MySql"></a>Spring+Hibernate+MySql</h3><p>&emsp;&emsp;使用JDBC与数据库交互时，总是避免不了写一些重复的sql脚本，且不符合面向对象的编程理念，而Hibernate则解决了这个问题。本文展示如何使用Spring+Hibernate+Mysql实现对数据库的增删改查操作。<br>
-        
-          <a class="article-more-a" href="/2017/08/20/Spring_0900_Hibernate/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/20/Spring_0900_Hibernate/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1206,6 +1212,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Annotation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Spring MVC</a>
               </li>
             
             <div class="clearfix"></div>
