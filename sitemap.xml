@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/09/01/JavaSE_0100_propertity/</loc>
+    
+    <lastmod>2017-10-21T14:50:15.415Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/29/Mybatis_0400_dynamicSql/</loc>
+    
+    <lastmod>2017-09-22T04:58:30.256Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/05/Hibernate_hql/</loc>
+    
+    <lastmod>2017-09-22T01:59:52.047Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/08/28/Mybatis_0301_SpringMVC/</loc>
     
     <lastmod>2017-09-22T01:27:23.947Z</lastmod>
@@ -229,13 +250,6 @@
     <loc>http://yoursite.com/2017/08/05/Spring_0100_HelloWorld/</loc>
     
     <lastmod>2017-09-15T11:57:47.878Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/08/05/Hibernate_hql/</loc>
-    
-    <lastmod>2017-09-15T08:43:45.479Z</lastmod>
     
   </url>
   

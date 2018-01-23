@@ -58,8 +58,6 @@
 	        
 				<li><a href="/photos">相册</a></li>
 	        
-				<li><a href="/tags">随笔</a></li>
-	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -114,8 +112,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -133,14 +129,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/photos">相册</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/tags">随笔</a></li>
+					<li style="width: 50%"><a href="/photos">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -156,6 +150,205 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-JavaSE_0100_propertity" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/01/JavaSE_0100_propertity/">Java读取Properties文件六种方法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/01/JavaSE_0100_propertity/" class="archive-article-date">
+  	<time datetime="2017-09-01T05:02:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Java读取Properties文件六种方法"><a href="#Java读取Properties文件六种方法" class="headerlink" title="Java读取Properties文件六种方法"></a>Java读取Properties文件六种方法</h3><h4 id="1-使用java-util-Properties类的load（）方法"><a href="#1-使用java-util-Properties类的load（）方法" class="headerlink" title="1. 使用java.util.Properties类的load（）方法"></a>1. 使用java.util.Properties类的load（）方法</h4><p>&emsp;&emsp;示例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">InputStream in = new BufferedInputStream（new FileInputStream（name））;</div><div class="line">Properties p = new Properties（）;</div><div class="line">p.load（in）;</div></pre></td></tr></table></figure></p>
+<h4 id="2-使用java-util-ResourceBundle类的getBundle（）方法"><a href="#2-使用java-util-ResourceBundle类的getBundle（）方法" class="headerlink" title="2. 使用java.util.ResourceBundle类的getBundle（）方法"></a>2. 使用java.util.ResourceBundle类的getBundle（）方法</h4><p>&emsp;&emsp;示例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ResourceBundle rb = ResourceBundle.getBundle（name， Locale.getDefault（））;</div></pre></td></tr></table></figure></p>
+<h4 id="3-使用java-util-PropertyResourceBundle类的构造函数"><a href="#3-使用java-util-PropertyResourceBundle类的构造函数" class="headerlink" title="3. 使用java.util.PropertyResourceBundle类的构造函数"></a>3. 使用java.util.PropertyResourceBundle类的构造函数</h4><p>&emsp;&emsp;示例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">InputStream in = new BufferedInputStream（new FileInputStream（name））;</div><div class="line">ResourceBundle rb = new PropertyResourceBundle（in）;</div></pre></td></tr></table></figure></p>
+<h4 id="4-使用class变量的getResourceAsStream（）方法"><a href="#4-使用class变量的getResourceAsStream（）方法" class="headerlink" title="4. 使用class变量的getResourceAsStream（）方法"></a>4. 使用class变量的getResourceAsStream（）方法</h4><p>&emsp;&emsp;示例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">InputStream in = JProperties.class.getResourceAsStream（name）;</div><div class="line">Properties p = new Properties（）;</div><div class="line">p.load（in）;</div></pre></td></tr></table></figure></p>
+<h4 id="5-使用class-getClassLoader（）所得到的java-lang-ClassLoader的getResourceAsStream（）方法"><a href="#5-使用class-getClassLoader（）所得到的java-lang-ClassLoader的getResourceAsStream（）方法" class="headerlink" title="5. 使用class.getClassLoader（）所得到的java.lang.ClassLoader的getResourceAsStream（）方法"></a>5. 使用class.getClassLoader（）所得到的java.lang.ClassLoader的getResourceAsStream（）方法</h4><p>&emsp;&emsp;示例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">InputStream in = JProperties.class.getClassLoader（）.getResourceAsStream（name）;</div><div class="line">Properties p = new Properties（）;</div><div class="line">p.load（in）;</div></pre></td></tr></table></figure></p>
+<h4 id="6-使用java-lang-ClassLoader类的getSystemResourceAsStream（）静态方法"><a href="#6-使用java-lang-ClassLoader类的getSystemResourceAsStream（）静态方法" class="headerlink" title="6. 使用java.lang.ClassLoader类的getSystemResourceAsStream（）静态方法"></a>6. 使用java.lang.ClassLoader类的getSystemResourceAsStream（）静态方法</h4><p>&emsp;&emsp;示例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">InputStream in = ClassLoader.getSystemResourceAsStream（name）;</div><div class="line">Properties p = new Properties（）;</div><div class="line">p.load（in）;</div></pre></td></tr></table></figure></p>
+<h4 id="servlet中使用javax-servlet-ServletContext的getResourceAsStream（）方法"><a href="#servlet中使用javax-servlet-ServletContext的getResourceAsStream（）方法" class="headerlink" title="servlet中使用javax.servlet.ServletContext的getResourceAsStream（）方法"></a>servlet中使用javax.servlet.ServletContext的getResourceAsStream（）方法</h4><p>&emsp;&emsp;示例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">InputStream in = context.getResourceAsStream（path）;</div><div class="line">Properties p = new Properties（）;</div><div class="line">p.load（in）;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JavaSE</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Properties</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/01/JavaSE_0100_propertity/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mybatis_0400_dynamicSql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/29/Mybatis_0400_dynamicSql/">MyBatis动态SQL语句</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/29/Mybatis_0400_dynamicSql/" class="archive-article-date">
+  	<time datetime="2017-08-29T12:21:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="MyBatis动态SQL语句"><a href="#MyBatis动态SQL语句" class="headerlink" title="MyBatis动态SQL语句"></a>MyBatis动态SQL语句</h3><p>&emsp;&emsp;MyBatis的强大特性之一便是它的动态 SQL。如果你有使用JDBC或其他类似框架的经验，你就能体会到根据不同条件拼接SQL语句有多么痛苦。拼接的时候要确保不能忘了必要的空格，还要注意省掉列名列表最后的逗号。利用动态SQL这一特性可以彻底摆脱这种痛苦。</p>
+<p>&emsp;&emsp;通常使用动态SQL不可能是独立的一部分,MyBatis当然使用一种强大的动态SQL语言来改进这种情形,这种语言可以被用在任意的SQL映射语句中。</p>
+<p>&emsp;&emsp;动态SQL元素和使用JSTL或其他类似基于XML的文本处理器相似。在 MyBatis之前的版本中,有很多的元素需要来了解。MyBatis 3大大提升了它们,现在用不到原先一半的元素就可以了。MyBatis 采用功能强大的基于OGNL的表达式来消除其他元素。</p>
+<p>&emsp;&emsp;mybatis的动态sql语句是基于OGNL表达式的。可以方便的在sql语句中实现某些逻辑。总体说来mybatis 动态SQL语句主要有以下几类:<br>&lt;– more –&gt;</p>
+<ul>
+<li>if语句(简单的条件判断)</li>
+<li>choose(when,otherwize),相当于java语言中的switch ,与jstl中的choose 很类似</li>
+<li>trim(对包含的内容加上prefix,或者 suffix等，前缀，后缀)</li>
+<li>where(主要是用来简化sql语句中where条件判断的，能智能的处理and or,不必担心多余导致语法错误)</li>
+<li>set(主要用于更新时)</li>
+<li>foreach(在实现mybatis in语句查询时特别有用)</li>
+</ul>
+<h4 id="1-if"><a href="#1-if" class="headerlink" title="1. if"></a>1. if</h4><p>&emsp;&emsp;动态SQL通常要做的事情是有条件地包含where子句的一部分。比如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;select id=&quot;findActiveBlogWithTitleLike&quot;</div><div class="line">     resultType=&quot;Blog&quot;&gt;</div><div class="line">  SELECT * FROM BLOG </div><div class="line">  WHERE state = ‘ACTIVE’ </div><div class="line">  &lt;if test=&quot;title != null&quot;&gt;</div><div class="line">    AND title like #&#123;title&#125;</div><div class="line">  &lt;/if&gt;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;这条语句提供了一个可选的文本查找类型的功能。如果没有传入“title”，那么所有处于“ACTIVE”状态的BLOG都会返回；反之若传入了“title”，那么就会把模糊查找“title”内容的BLOG结果返回(就这个例子而言，细心的读者会发现其中的参数值是可以包含一些掩码或通配符的)。<br>&emsp;&emsp;如果想可选地通过“title”和“author”两个条件搜索该怎么办呢？首先，改变语句的名称让它更具实际意义；然后只要加入另一个条件即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;select id=&quot;findActiveBlogLike&quot;</div><div class="line">     resultType=&quot;Blog&quot;&gt;</div><div class="line">  SELECT * FROM BLOG WHERE state = ‘ACTIVE’ </div><div class="line">  &lt;if test=&quot;title != null&quot;&gt;</div><div class="line">    AND title like #&#123;title&#125;</div><div class="line">  &lt;/if&gt;</div><div class="line">  &lt;if test=&quot;author != null and author.name != null&quot;&gt;</div><div class="line">    AND author_name like #&#123;author.name&#125;</div><div class="line">  &lt;/if&gt;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="2-choose-when-otherwise"><a href="#2-choose-when-otherwise" class="headerlink" title="2. choose, when, otherwise"></a>2. choose, when, otherwise</h4><p>&emsp;&emsp;有些时候，我们不想用到所有的条件语句，而只想从中择其一二。针对这种情况，MyBatis提供了choose元素，它有点像Java中的switch语句。</p>
+<p>&emsp;&emsp;还是上面的例子，但是这次变为提供了“title”就按“title”查找，提供了“author”就按“author”查找，若两者都没有提供，就返回所有符合条件的BLOG(实际情况可能是由管理员按一定策略选出BLOG列表，而不是返回大量无意义的随机结果)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;select id=&quot;findActiveBlogLike&quot;</div><div class="line">     resultType=&quot;Blog&quot;&gt;</div><div class="line">  SELECT * FROM BLOG WHERE state = ‘ACTIVE’</div><div class="line">  &lt;choose&gt;</div><div class="line">    &lt;when test=&quot;title != null&quot;&gt;</div><div class="line">      AND title like #&#123;title&#125;</div><div class="line">    &lt;/when&gt;</div><div class="line">    &lt;when test=&quot;author != null and author.name != null&quot;&gt;</div><div class="line">      AND author_name like #&#123;author.name&#125;</div><div class="line">    &lt;/when&gt;</div><div class="line">    &lt;otherwise&gt;</div><div class="line">      AND featured = 1</div><div class="line">    &lt;/otherwise&gt;</div><div class="line">  &lt;/choose&gt;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="3-trim-where-set"><a href="#3-trim-where-set" class="headerlink" title="3. trim, where, set"></a>3. trim, where, set</h4><p>&emsp;&emsp;现在考虑回到“if”示例，这次我们将“ACTIVE = 1”也设置成动态的条件，看看会发生什么。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;select id=&quot;findActiveBlogLike&quot;</div><div class="line">     resultType=&quot;Blog&quot;&gt;</div><div class="line">  SELECT * FROM BLOG </div><div class="line">  WHERE </div><div class="line">  &lt;if test=&quot;state != null&quot;&gt;</div><div class="line">    state = #&#123;state&#125;</div><div class="line">  &lt;/if&gt; </div><div class="line">  &lt;if test=&quot;title != null&quot;&gt;</div><div class="line">    AND title like #&#123;title&#125;</div><div class="line">  &lt;/if&gt;</div><div class="line">  &lt;if test=&quot;author != null and author.name != null&quot;&gt;</div><div class="line">    AND author_name like #&#123;author.name&#125;</div><div class="line">  &lt;/if&gt;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;如果这些条件没有一个能匹配上将会怎样？最终这条SQL会变成这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM BLOG</div><div class="line">WHERE</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;这会导致查询失败。如果仅仅第二个条件匹配又会怎样？这条SQL最终会是这样:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM BLOG</div><div class="line">WHERE </div><div class="line">AND title like ‘yiibai.com’</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;这个查询也会失败。这个问题不能简单的用条件句式来解决，如果你也曾经被迫这样写过，那么你很可能从此以后都不想再这样去写了。</p>
+<p>&emsp;&emsp;MyBatis有一个简单的处理，这在90%的情况下都会有用。而在不能使用的地方，你可以自定义处理方式来令其正常工作。一处简单的修改就能得到想要的效果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;select id=&quot;findActiveBlogLike&quot;</div><div class="line">     resultType=&quot;Blog&quot;&gt;</div><div class="line">  SELECT * FROM BLOG </div><div class="line">  &lt;where&gt; </div><div class="line">    &lt;if test=&quot;state != null&quot;&gt;</div><div class="line">         state = #&#123;state&#125;</div><div class="line">    &lt;/if&gt; </div><div class="line">    &lt;if test=&quot;title != null&quot;&gt;</div><div class="line">        AND title like #&#123;title&#125;</div><div class="line">    &lt;/if&gt;</div><div class="line">    &lt;if test=&quot;author != null and author.name != null&quot;&gt;</div><div class="line">        AND author_name like #&#123;author.name&#125;</div><div class="line">    &lt;/if&gt;</div><div class="line">  &lt;/where&gt;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;where元素知道只有在一个以上的if条件有值的情况下才去插入“WHERE”子句。而且，若最后的内容是“AND”或“OR”开头的，where 元素也知道如何将他们去除。</p>
+<p>&emsp;&emsp;如果where元素没有按正常套路出牌，我们还是可以通过自定义trim元素来定制我们想要的功能。比如，和where元素等价的自定义trim元素为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;trim prefix=&quot;WHERE&quot; prefixOverrides=&quot;AND |OR &quot;&gt; ... &lt;/trim&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;prefixOverrides 属性会忽略通过管道分隔的文本序列(注意此例中的空格也是必要的)。它带来的结果就是所有在 prefixOverrides 属性中指定的内容将被移除，并且插入 prefix 属性中指定的内容。</p>
+<p>&emsp;&emsp;类似的用于动态更新语句的解决方案叫做 set。set元素可以被用于动态包含需要更新的列，而舍去其他的。比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;update id=&quot;updateAuthorIfNecessary&quot;&gt;</div><div class="line">  update Author</div><div class="line">    &lt;set&gt;</div><div class="line">      &lt;if test=&quot;username != null&quot;&gt;username=#&#123;username&#125;,&lt;/if&gt;</div><div class="line">      &lt;if test=&quot;password != null&quot;&gt;password=#&#123;password&#125;,&lt;/if&gt;</div><div class="line">      &lt;if test=&quot;email != null&quot;&gt;email=#&#123;email&#125;,&lt;/if&gt;</div><div class="line">      &lt;if test=&quot;bio != null&quot;&gt;bio=#&#123;bio&#125;&lt;/if&gt;</div><div class="line">    &lt;/set&gt;</div><div class="line">  where id=#&#123;id&#125;</div><div class="line">&lt;/update&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;这里，set元素会动态前置SET关键字，同时也会消除无关的逗号，因为用了条件语句之后很可能就会在生成的赋值语句的后面留下这些逗号。</p>
+<p>&emsp;&emsp;若你对等价的自定义 trim 元素的样子感兴趣，那这就应该是它的真面目：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;trim prefix=&quot;SET&quot; suffixOverrides=&quot;,&quot;&gt; ... &lt;/trim&gt;</div></pre></td></tr></table></figure></p>
+<p>注意这里我们忽略的是后缀中的值，而又一次附加了前缀中的值。</p>
+<h4 id="4-foreach"><a href="#4-foreach" class="headerlink" title="4. foreach"></a>4. foreach</h4><p>&emsp;&emsp;动态SQL的另外一个常用的必要操作是需要对一个集合进行遍历，通常是在构建IN条件语句的时候。比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;select id=&quot;selectPostIn&quot; resultType=&quot;domain.blog.Post&quot;&gt;</div><div class="line">  SELECT *</div><div class="line">  FROM POST P</div><div class="line">  WHERE ID in</div><div class="line">  &lt;foreach item=&quot;item&quot; index=&quot;index&quot; collection=&quot;list&quot;</div><div class="line">      open=&quot;(&quot; separator=&quot;,&quot; close=&quot;)&quot;&gt;</div><div class="line">        #&#123;item&#125;</div><div class="line">  &lt;/foreach&gt;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;foreach 元素的功能是非常强大的，它允许你指定一个集合，声明可以用在元素体内的集合项和索引变量。它也允许你指定开闭匹配的字符串以及在迭代中间放置分隔符。这个元素是很智能的，因此它不会偶然地附加多余的分隔符。</p>
+<p>&emsp;&emsp;注意 你可以将一个List实例或者数组作为参数对象传给MyBatis，当你这么做的时候，MyBatis会自动将它包装在一个Map中并以名称为键。List实例将会以“list”作为键，而数组实例的键将是“array”。</p>
+<h4 id="5-bind"><a href="#5-bind" class="headerlink" title="5. bind"></a>5. bind</h4><p>&emsp;&emsp;bind元素可以从OGNL表达式中创建一个变量并将其绑定到上下文。比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;select id=&quot;selectBlogsLike&quot; resultType=&quot;Blog&quot;&gt;</div><div class="line">  &lt;bind name=&quot;pattern&quot; value=&quot;&apos;%&apos; + _parameter.getTitle() + &apos;%&apos;&quot; /&gt;</div><div class="line">  SELECT * FROM BLOG</div><div class="line">  WHERE title LIKE #&#123;pattern&#125;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="6-Multi-db-vendor-support"><a href="#6-Multi-db-vendor-support" class="headerlink" title="6. Multi-db vendor support"></a>6. Multi-db vendor support</h4><p>&emsp;&emsp;一个配置了“_databaseId”变量的databaseIdProvider 对于动态代码来说是可用的，这样就可以根据不同的数据库厂商构建特定的语句。比如下面的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;insert id=&quot;insert&quot;&gt;</div><div class="line">  &lt;selectKey keyProperty=&quot;id&quot; resultType=&quot;int&quot; order=&quot;BEFORE&quot;&gt;</div><div class="line">    &lt;if test=&quot;_databaseId == &apos;oracle&apos;&quot;&gt;</div><div class="line">      select seq_users.nextval from dual</div><div class="line">    &lt;/if&gt;</div><div class="line">    &lt;if test=&quot;_databaseId == &apos;db2&apos;&quot;&gt;</div><div class="line">      select nextval for seq_users from sysibm.sysdummy1&quot;</div><div class="line">    &lt;/if&gt;</div><div class="line">  &lt;/selectKey&gt;</div><div class="line">  insert into users values (#&#123;id&#125;, #&#123;name&#125;)</div><div class="line">&lt;/insert&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="7-动态SQL中可插拔的脚本语言"><a href="#7-动态SQL中可插拔的脚本语言" class="headerlink" title="7. 动态SQL中可插拔的脚本语言"></a>7. 动态SQL中可插拔的脚本语言</h4><p>&emsp;&emsp;MyBatis从3.2开始支持可插拔的脚本语言，因此你可以在插入一种语言的驱动(language driver)之后来写基于这种语言的动态SQL查询。</p>
+<p>&emsp;&emsp;可以通过实现下面接口的方式来插入一种语言：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">public interface LanguageDriver &#123;</div><div class="line">  ParameterHandler createParameterHandler(MappedStatement mappedStatement, Object parameterObject, BoundSql boundSql);</div><div class="line">  SqlSource createSqlSource(Configuration configuration, XNode script, Class&lt;?&gt; parameterType);</div><div class="line">  SqlSource createSqlSource(Configuration configuration, String script, Class&lt;?&gt; parameterType);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;一旦有了自定义的语言驱动，你就可以在mybatis-config.xml 文件中将它设置为默认语言：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;typeAliases&gt;</div><div class="line">  &lt;typeAlias type=&quot;org.sample.MyLanguageDriver&quot; alias=&quot;myLanguage&quot;/&gt;</div><div class="line">&lt;/typeAliases&gt;</div><div class="line">&lt;settings&gt;</div><div class="line">  &lt;setting name=&quot;defaultScriptingLanguage&quot; value=&quot;myLanguage&quot;/&gt;</div><div class="line">&lt;/settings&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;除了设置默认语言，你也可以针对特殊的语句指定特定语言，这可以通过如下的lang属性来完成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;select id=&quot;selectBlog&quot; lang=&quot;myLanguage&quot;&gt; SELECT * FROM BLOG &lt;/select&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;或者在映射中加上注解@Lang来完成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">public interface Mapper &#123;</div><div class="line">  @Lang(MyLanguageDriver.class)</div><div class="line">  @Select(&quot;SELECT * FROM BLOG&quot;)</div><div class="line">  List&lt;Blog&gt; selectBlog();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">动态sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/29/Mybatis_0400_dynamicSql/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-Mybatis_0302_SpringMVC_problems" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -820,173 +1013,9 @@
 
 
   
-    <article id="post-Mybatis_0100_configuration_xml" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/24/Mybatis_0100_configuration_xml/">MyBatis 基础配置</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/24/Mybatis_0100_configuration_xml/" class="archive-article-date">
-  	<time datetime="2017-08-24T10:46:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="MyBatis-基础配置"><a href="#MyBatis-基础配置" class="headerlink" title="MyBatis 基础配置"></a>MyBatis 基础配置</h3><p>&emsp;&emsp;MyBatis 是支持普通SQL查询,存储过程和高级映射的优秀持久层框架。MyBatis消除了几乎所有的JDBC代码和参数的手工设置以及结果集的检索。MyBatis使用简单的XML或注解用于配置和原始映射,将接口和Java的POJOs(Plain Old Java Objects，普通的Java对象)映射成数据库中的记录。<br>
-        
-          <a class="article-more-a" href="/2017/08/24/Mybatis_0100_configuration_xml/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">配置</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/24/Mybatis_0100_configuration_xml/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring_0903_HibernateAop" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/23/Spring_0903_HibernateAop/">Spring AOP管理hibernate事务</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/23/Spring_0903_HibernateAop/" class="archive-article-date">
-  	<time datetime="2017-08-23T10:52:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Spring-AOP管理hibernate事务"><a href="#Spring-AOP管理hibernate事务" class="headerlink" title="Spring AOP管理hibernate事务"></a>Spring AOP管理hibernate事务</h3><p>&emsp;&emsp;事务管理是用来以确保数据库中数据的完整性和一致性。Spring AOP技术允许开发者管理事务的声明。本文介绍一下如何使用Spring AOP进行hibernate事务管理。<br>
-        
-          <a class="article-more-a" href="/2017/08/23/Spring_0903_HibernateAop/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AOP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/23/Spring_0903_HibernateAop/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -998,7 +1027,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Hal
+    		&copy; 2018 Hal
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1216,6 +1245,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Spring MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">动态sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Properties</a>
               </li>
             
             <div class="clearfix"></div>
